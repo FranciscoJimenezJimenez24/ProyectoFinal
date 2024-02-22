@@ -326,7 +326,8 @@ public class Servidor {
             	}else {
             		writer.println("ERR"); 
             	}
-            }
+            } 
+        	
         }
         
     }
