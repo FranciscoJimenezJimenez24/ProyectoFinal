@@ -7,22 +7,13 @@ public class prueba {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		String opcion = "ing <300> 1";
+		String opcion = "mov 1";
 	    opcion = opcion.toLowerCase();
 
-	    if (opcion.startsWith("ing")) {
-	        Pattern pattern = Pattern.compile("<(\\d+)>\\s+(\\d+)");
-	        Matcher matcher = pattern.matcher(opcion);
-
-	        if (matcher.find()) {
-	            String valor1 = matcher.group(1);
-	            String valor2 = matcher.group(2);
-
-	            int numero1 = Integer.parseInt(valor1);
-	            int numero2 = Integer.parseInt(valor2);
-	            
-	            System.out.println("Dinero: "+numero1+", cuenta: "+numero2);
-	        }
+	    if (opcion.startsWith("mov")) {
+	    	String numeroStr = opcion.substring(4).trim();  // Obtener la subcadena a partir del segundo carácter
+            int id_cuenta = Integer.parseInt(numeroStr);
+            System.out.println(id_cuenta);
 	    }
 	}
 
