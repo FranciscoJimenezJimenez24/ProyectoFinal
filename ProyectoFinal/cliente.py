@@ -1,5 +1,7 @@
 import socket
 import ssl
+from cryptography.hazmat.primitives.ciphers import Cipher, algorithms, modes
+from cryptography.hazmat.backends import default_backend
 
 def menu():
     print("""
@@ -35,22 +37,13 @@ def password(socket_cliente):
     else:
         return False
     
-def recibir_archivo(client_socket):
-    # Recibir nombre del archivo
-    nombre_archivo = client_socket.recv(1024).decode()
-    nuevo_nombre = "movimientos.txt"    
-
-    print(f"Recibiendo archivo: {nombre_archivo}")
-
-    # Recibir y escribir el contenido del archivo
-    with open(nuevo_nombre, "wb") as file:
-        while True:
-            data = client_socket.recv(1024)            
-            if not data:
-                break
-            file.write(data)
-
-    print(f"Archivo {nombre_archivo} recibido y guardado como {nuevo_nombre}.")
+def decrypt_data(encrypted_data):
+    aes_key = b'0123456789abcdef'  # 16-byte key for AES decryption
+    cipher = Cipher(algorithms.AES(aes_key), modes.ECB(), backend=default_backend())
+    decryptor = cipher.decryptor()
+    decrypted_data = decryptor.update(encrypted_data) + decryptor.finalize()
+    print("Data decrypted.")
+    return decrypted_data
     
 def control(socket_cliente):
     comando=""
@@ -59,11 +52,17 @@ def control(socket_cliente):
         menu()
         comando=input("Comando: ").lower()
         socket_cliente.send(f"{comando}\r\n".encode())
+        if comando.startswith("sendmov") :
+            encrypted_data = socket_cliente.recv(1024)
+            decrypted_data = decrypt_data(encrypted_data)
+            with open('movimientos.txt', 'wb') as f:
+                f.write(decrypted_data)
+            print("File decrypted and saved as 'movimientos.txt'.")
+
         mensaje_servidor = socket_cliente.recv(1024).decode()
         print(mensaje_servidor)
 
-        if comando.startswith("sendmov") :
-            recibir_archivo(socket_cliente)
+        
 
 
 
@@ -76,7 +75,6 @@ try:
     num = 1
     while (num!=0):
         if (user(socket_cliente)):
-            # si la contraseña es incorrecta, vuelve ha preguntar el usuario
             if (password(socket_cliente)):
                 num=0
                 control(socket_cliente)

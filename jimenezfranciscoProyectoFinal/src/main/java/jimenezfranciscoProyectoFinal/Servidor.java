@@ -1,19 +1,18 @@
 package jimenezfranciscoProyectoFinal;
 
+import java.io.BufferedInputStream;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileInputStream;
-import java.io.FileOutputStream;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.io.OutputStream;
 import java.io.PrintWriter;
 import java.net.ServerSocket;
 import java.net.Socket;
-import java.security.KeyPair;
-import java.security.KeyPairGenerator;
+import java.security.InvalidKeyException;
 import java.security.NoSuchAlgorithmException;
-import java.security.PublicKey;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -29,7 +28,11 @@ import java.util.logging.SimpleFormatter;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import javax.crypto.BadPaddingException;
 import javax.crypto.Cipher;
+import javax.crypto.IllegalBlockSizeException;
+import javax.crypto.NoSuchPaddingException;
+import javax.crypto.spec.SecretKeySpec;
 
 public class Servidor {
 
@@ -50,7 +53,7 @@ public class Servidor {
 		}
 	}
 
-    public void main() {
+    public void main() throws InvalidKeyException, NoSuchAlgorithmException, NoSuchPaddingException {
         LOGGER.setLevel(Level.ALL);
 
         try {
@@ -202,37 +205,26 @@ public class Servidor {
     }
     
     private void checkAuthetication(Socket socket) {
+    	String usuario = "";
 		try {
 			BufferedReader reader = new BufferedReader(new InputStreamReader(socket.getInputStream()));
 	        PrintWriter writer = new PrintWriter(socket.getOutputStream(), true);
-
-	        // Leer el usuario
-	        String usuario = reader.readLine().trim();
-	        if (getUsuario(usuario)) {
-	            writer.println("+OK user");
-	            boolean check=false;
-	            while (!check) {
+	        while (!getUsuario(usuario)) {
+	        	usuario=reader.readLine().trim();
+	        	if (getUsuario(usuario)) {
+	        		writer.println("+OK user");
 	            	String contrasena = reader.readLine().trim();
 	            	if (checkContrasena(contrasena,usuario)) {
-	            		check=true;
 	            		writer.println("+OK pass");
 	            	}else { 
+	            		usuario="";
 	            		writer.println("ERR pass");
 	            	}
-	            }
-	        }else {
-	        	writer.println("ERR user");
-	        	boolean check=false;
-	        	while (!check) {
-	            	String user = new String(socket.getInputStream().readAllBytes()).trim();
-	            	if (getUsuario(user)) {
-	            		check=true;
-	            		writer.println("+OK user");
-	            	}else {
-	            		writer.println("ERR user");
-	            	}
-	            	
-	            }
+		            
+	        	}else {
+	        		writer.println("ERR user");
+	        	}
+	            
 	        }
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
@@ -241,16 +233,15 @@ public class Servidor {
         id_usuario=getIdUsuario(usuario,socket);
     }
  
-    private void opciones(Socket socket) throws IOException {
+    private void opciones(Socket socket) throws IOException, NoSuchAlgorithmException, NoSuchPaddingException, InvalidKeyException {
     	BufferedReader reader = new BufferedReader(new InputStreamReader(socket.getInputStream()));
         PrintWriter writer = new PrintWriter(socket.getOutputStream(), true);
         
         String opcion="";
         while (opcion!="quit") {
-        opcion = reader.readLine().trim();
-        LOGGER.log(Level.FINE, "El servidor recibe el comando");
-        opcion = opcion.toLowerCase();
-        
+		    opcion = reader.readLine().trim();
+		    LOGGER.log(Level.FINE, "El servidor recibe el comando");
+		    opcion = opcion.toLowerCase();
         
         	if (opcion.startsWith("ing")) {
         		Pattern pattern = Pattern.compile("<(\\d+)>\\s+(\\d+)");
@@ -301,35 +292,45 @@ public class Servidor {
             	String numeroStr = opcion.substring(8).trim();
             	int id_cuenta = Integer.parseInt(numeroStr);
             	if (sendFicheroMovimientos(id_cuenta)) {
-            		KeyPair key=generarClave();
-            		PublicKey publicKey=obtenerClavePublica(key);
-            		try {
-    					cifrarArchivo("fichero.txt","movimientosEncriptados.txt",publicKey);
-    				} catch (Exception e) {
-    					// TODO Auto-generated catch block
-    					e.printStackTrace();
-    				}
-            		String filePath = "movimientosEncriptados.txt";
-                    File file = new File(filePath);
-                    String fileName = file.getName();
-                    writer.println(fileName);
+            		File file = new File("fichero.txt");
+                    byte[] fileBytes = new byte[(int) file.length()];
+                    FileInputStream fis = new FileInputStream(file);
+                    BufferedInputStream bis = new BufferedInputStream(fis);
+                    bis.read(fileBytes, 0, fileBytes.length);
 
-                    // Enviar el contenido del archivo
-                    FileInputStream fileInputStream = new FileInputStream(file);
-                    byte[] buffer = new byte[1024];
-                    int bytesRead;
-                    while ((bytesRead = fileInputStream.read(buffer)) != -1) {
-                    	String line = new String(buffer, 0, bytesRead);
-                        writer.println(line);
-                    }
-            		writer.println("Se envio el fichero");
+                    // Encrypt fileBytes
+                    byte[] encryptedBytes;
+					try {
+						encryptedBytes = encrypt(fileBytes);
+						OutputStream os = socket.getOutputStream();
+	                    os.write(encryptedBytes, 0, encryptedBytes.length);
+	                    os.flush();
+					} catch (InvalidKeyException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					} catch (NoSuchAlgorithmException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					} catch (NoSuchPaddingException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					} catch (IllegalBlockSizeException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					} catch (BadPaddingException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+					writer.println("Se envio correctamente el fichero"); 
             	}else {
             		writer.println("ERR"); 
             	}
-            } 
-        	
+            }else if (opcion.equalsIgnoreCase("quit")) {
+            	writer.println("Hasta luego"); 
+            }else {
+            	writer.println("Ese comando es incorrecto"); 
+            }
         }
-        
     }
     
     private boolean getUsuario(String usuario) {
@@ -385,56 +386,11 @@ public class Servidor {
     	return id_usuario;
     }
     
-    public KeyPair generarClave() {
-		KeyPairGenerator generator;
-		try {
-			generator = KeyPairGenerator.getInstance("RSA");
-			generator.initialize(8192);
-			KeyPair pair = generator.generateKeyPair();
-			return pair;
-		} catch (NoSuchAlgorithmException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		return null;
-	}
-    
-  	//obtiene la clave publica
-  	private PublicKey obtenerClavePublica(KeyPair pair) {
-  		PublicKey publicKey = pair.getPublic();
-  		return publicKey;
-  	}
-    
-  	private void cifrarArchivo(String fichero, String ficheroEncriptado, PublicKey publicKey) throws Exception {
-        byte[] contenido = leerFichero(fichero);
-        byte[] contenidoCifrado = cifrarConClavePublica(contenido, publicKey);
-        escribirFichero(ficheroEncriptado, contenidoCifrado);
-    }
-  	
-  	private void escribirFichero(String fichero, byte[] contenido) throws Exception {
-        try (FileOutputStream f = new FileOutputStream(fichero)) {
-            f.write(contenido);
-        }
-    }
-  	
- // Cifrar con la clave pública
-    private byte[] cifrarConClavePublica(byte[] contenido, PublicKey clavePublica) throws Exception {
-        Cipher cifrador = Cipher.getInstance("RSA");
-        cifrador.init(Cipher.ENCRYPT_MODE, clavePublica);
-        return cifrador.doFinal(contenido);
+    private static byte[] encrypt(byte[] input) throws NoSuchAlgorithmException, NoSuchPaddingException, InvalidKeyException, IllegalBlockSizeException, BadPaddingException {
+        SecretKeySpec keySpec = new SecretKeySpec("0123456789abcdef".getBytes(), "AES");
+        Cipher cipher = Cipher.getInstance("AES");
+        cipher.init(Cipher.ENCRYPT_MODE, keySpec);
+        return cipher.doFinal(input);
     }
     
- // Leer contenido de un fichero y devolverlo como un array de bytes
-    private byte[] leerFichero(String fichero) throws Exception {
-        File archivo = new File(fichero);
-        byte[] contenido = new byte[(int) archivo.length()];
-
-        try (FileInputStream f = new FileInputStream(archivo)) {
-            f.read(contenido);
-        }
-
-        return contenido;
-    }
-    
-
 }
