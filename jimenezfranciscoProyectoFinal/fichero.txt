@@ -1,3 +1,2 @@
-Id: 2, Dinero movido: 200.0, Fecha: 2024-02-22 20:43:33.0, Cuenta: 1
-Id: 3, Dinero movido: -50.0, Fecha: 2024-02-22 20:43:40.0, Cuenta: 1
-Id: 4, Dinero movido: 200.0, Fecha: 2024-02-22 20:44:15.0, Cuenta: 1
+Id: 1, Dinero movido: 300.0, Fecha: 2024-02-26 16:33:53.0, Cuenta: 1
+Id: 2, Dinero movido: -200.0, Fecha: 2024-02-26 16:41:15.0, Cuenta: 1

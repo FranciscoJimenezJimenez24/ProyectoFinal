@@ -1,6 +1,7 @@
 import socket
 import ssl
 from cryptography.hazmat.primitives.ciphers import Cipher, algorithms, modes
+from cryptography.hazmat.primitives import padding
 from cryptography.hazmat.backends import default_backend
 
 def menu():
@@ -37,24 +38,27 @@ def password(socket_cliente):
     else:
         return False
     
-def decrypt_data(encrypted_data):
+def decrypt_data(encrypted_data, iv):
     aes_key = b'0123456789abcdef'  # 16-byte key for AES decryption
-    cipher = Cipher(algorithms.AES(aes_key), modes.ECB(), backend=default_backend())
+    cipher = Cipher(algorithms.AES(aes_key), modes.CBC(iv), backend=default_backend())
     decryptor = cipher.decryptor()
     decrypted_data = decryptor.update(encrypted_data) + decryptor.finalize()
     print("Data decrypted.")
+    unpadder = padding.PKCS7(128).unpadder()
+    decrypted_data = unpadder.update(decrypted_data) + unpadder.finalize()
     return decrypted_data
-    
+
 def control(socket_cliente):
     comando=""
-    # si pone quit, se sal del menu 
+    # si pone quit, se sale del menu 
     while comando!="quit":
         menu()
         comando=input("Comando: ").lower()
         socket_cliente.send(f"{comando}\r\n".encode())
         if comando.startswith("sendmov") :
             encrypted_data = socket_cliente.recv(1024)
-            decrypted_data = decrypt_data(encrypted_data)
+            iv = socket_cliente.recv(16)  # Recibir el vector de inicialización
+            decrypted_data = decrypt_data(encrypted_data, iv)
             with open('movimientos.txt', 'wb') as f:
                 f.write(decrypted_data)
             print("File decrypted and saved as 'movimientos.txt'.")
@@ -62,24 +66,23 @@ def control(socket_cliente):
         mensaje_servidor = socket_cliente.recv(1024).decode()
         print(mensaje_servidor)
 
-        
-
-
-
 try:
-    socket_cliente = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-    
-    socket_cliente.connect(("localhost", 2026)) 
-    # mensaje_servidor = socket_cliente.recv(1024).decode()
-    # print(mensaje_servidor)
-    num = 1
-    while (num!=0):
-        if (user(socket_cliente)):
-            if (password(socket_cliente)):
-                num=0
-                control(socket_cliente)
+    context = ssl.create_default_context()
+    context.check_hostname = False  # Desactivar la verificación del hostname
+    context.verify_mode = ssl.CERT_NONE  # Desactivar la verificación del certificado
+    with context.wrap_socket(socket.socket(socket.AF_INET, socket.SOCK_STREAM), server_hostname="localhost") as socket_cliente:
+        socket_cliente.connect(("localhost", 2026))
+        num = 1
+        while num != 0:
+            if user(socket_cliente):
+                if password(socket_cliente):
+                    num = 0
+                    control(socket_cliente)
 except Exception as e:
     print(f"Error: {e}")
 finally:
-    socket_cliente.close()
+    try:
+        socket_cliente.close()
+    except NameError:
+        pass
 
