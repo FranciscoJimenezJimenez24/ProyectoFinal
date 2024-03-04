@@ -4,18 +4,15 @@ from cryptography.hazmat.primitives.ciphers import Cipher, algorithms, modes
 from cryptography.hazmat.primitives import padding
 from cryptography.hazmat.backends import default_backend
 
-def menu():
-    print("""
-        (ING <money> <id_cuenta>) Ingresa dinero
-        (RET <money> <id_cuenta>) Retirar dinero
-        (MOV <id_cuenta>) Recuperar mensaje
-        (SENDMOV <id_cuenta>) Enviar fichero con movimiento al cliente
-        (QUIT) Abandonar la sesión de cliente
-        """)
+usuario1=""
+contrasena1=""
+
+
 # este metodo pide el usuario
 def user(socket_cliente):
-
+    global usuario1
     usuario=input("Introduce el usuario: ")
+    usuario1=usuario
     # envia el usuario
     socket_cliente.send(f"{usuario}\r\n".encode())
     # recibe una respuesta
@@ -29,7 +26,9 @@ def user(socket_cliente):
 
 # este metodo pide la contraseña
 def password(socket_cliente):
+    global contrasena1
     contrasena=input("Introduce la contraseña: ")
+    contrasena1=contrasena
     socket_cliente.send(f"{contrasena}\r\n".encode())
     mensaje_servidor = socket_cliente.recv(1024).decode()
     print(mensaje_servidor)
@@ -37,6 +36,25 @@ def password(socket_cliente):
         return True
     else:
         return False
+    
+def menu():
+    if usuario1=="usuario1" and contrasena1=="contrasena1":
+        print("""
+            (ING <money> <id_cuenta>) Ingresa dinero
+            (RET <money> <id_cuenta>) Retirar dinero
+            (MOV <id_cuenta>) ver ultimos movimientos
+            (SENDMOV <id_cuenta>) Enviar fichero con movimiento al cliente
+            (SEECOUNTS) ver el saldo de todas las cuentas
+            (QUIT) Abandonar la sesión de cliente
+            """)
+    else:
+        print("""
+            (ING <money> <id_cuenta>) Ingresa dinero
+            (RET <money> <id_cuenta>) Retirar dinero
+            (MOV <id_cuenta>) ver ultimos movimientos
+            (SENDMOV <id_cuenta>) Enviar fichero con movimiento al cliente
+            (QUIT) Abandonar la sesión de cliente
+            """)
     
 def decrypt_data(encrypted_data, iv):
     aes_key = b'0123456789abcdef'  # 16-byte key for AES decryption

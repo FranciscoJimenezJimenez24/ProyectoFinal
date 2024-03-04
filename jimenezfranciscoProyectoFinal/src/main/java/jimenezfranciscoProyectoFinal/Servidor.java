@@ -55,12 +55,14 @@ public class Servidor {
 	
 	private static final int MAX_CLIENTES = 5;
     private static final Semaphore SEMAFORO = new Semaphore(MAX_CLIENTES);
-	private static String url="jdbc:mysql://localhost/gestionCuentas";
-	private static String usuario="root";
-	private static String clave="password";
+	private static String url="jdbc:mysql://143.47.48.57:3306/gestionCuentas";
+	private static String usuario="paquito";
+	private static String clave="Paco@1234";
 	private static Connection conexion;
 	private static int id_usuario=0;
 	private static ExecutorService executor;
+	private static boolean user=false;
+	private static boolean password=false;
 	
 	static {
 		try {
@@ -289,11 +291,16 @@ public class Servidor {
 	            	String contrasena = reader.readLine().trim();
 	            	if (checkContrasena(contrasena,usuario)) {
 	            		writer.println("+OK pass");
+	            		if (contrasena.equalsIgnoreCase("contrasena1")) {
+	            			password=true;
+	            		}else {
+	            			password=false;
+	            		}
 	            	}else { 
 	            		usuario="";
 	            		writer.println("ERR pass");
 	            	}
-		            
+	            	
 	        	}else {
 	        		writer.println("ERR user");
 	        	}
@@ -302,6 +309,11 @@ public class Servidor {
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+		}
+		if (usuario.equalsIgnoreCase("usuario1")) {
+			user=true;
+		}else {
+			user=false;
 		}
         id_usuario=getIdUsuario(usuario,socket);
     }
@@ -336,6 +348,7 @@ public class Servidor {
                     }else {
                     	writer.println("Comando incorrecto");
                     }
+                    mostrarDineroActual();
                 }else if (opcion.startsWith("ret")) {
                 	Pattern pattern = Pattern.compile("<(\\d+)>\\s+(\\d+)");
                     Matcher matcher = pattern.matcher(opcion);
@@ -354,6 +367,7 @@ public class Servidor {
                     }else {
                     	writer.println("Comando incorrecto");
                     }
+                    mostrarDineroActual();
                 }else if (opcion.startsWith("mov")) {
                 	String numeroStr = opcion.substring(4).trim();  // Obtener la subcadena a partir del segundo carácter
                     int id_cuenta = Integer.parseInt(numeroStr);
@@ -404,7 +418,9 @@ public class Servidor {
                 	}else {
                 		writer.println("ERR"); 
                 	}
-                }else if (opcion.equalsIgnoreCase("quit")) {
+                }else if (opcion.equalsIgnoreCase("seecounts") && user && password) {
+            		writer.println(mostrarDineroActual());
+            	}else if (opcion.equalsIgnoreCase("quit")) {
                 	writer.println("Hasta luego"); 
                 }else {
                 	writer.println("Ese comando es incorrecto"); 
@@ -474,6 +490,22 @@ public class Servidor {
         Cipher cipher = Cipher.getInstance("AES");
         cipher.init(Cipher.ENCRYPT_MODE, keySpec);
         return cipher.doFinal(input);
+    }
+    
+    public static String mostrarDineroActual() {
+    	String sql="SELECT SUM(saldo) FROM cuentas";
+    	String lista="";
+    	try (PreparedStatement statement=conexion.prepareStatement(sql)){
+    		ResultSet result=statement.executeQuery();
+    		if (result.next()) {
+    			int saldoTotal=result.getInt(1);
+    			lista="El saldo total de las cuentas es de "+saldoTotal+"€\n";
+    		}
+    	} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+    	return lista;
     }
     
 }
