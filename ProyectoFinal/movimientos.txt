@@ -1,0 +1,11 @@
+\•≠êèE¸ój6,ò'‡vido: 300.0, Fecha: 2024-03-04 16:44:49.0, Cuenta: 1
+Id: 3, Dinero movido: -150.0, Fecha: 2024-03-04 16:45:57.0, Cuenta: 1
+Id: 4, Dinero movido: -150.0, Fecha: 2024-03-04 16:46:19.0, Cuenta: 1
+Id: 5, Dinero movido: 300.0, Fecha: 2024-03-07 19:26:22.0, Cuenta: 1
+Id: 6, Dinero movido: -300.0, Fecha: 2024-03-07 19:26:34.0, Cuenta: 1
+Id: 7, Dinero movido: -300.0, Fecha: 2024-03-07 19:27:03.0, Cuenta: 1
+Id: 8, Dinero movido: -300.0, Fecha: 2024-03-07 19:27:18.0, Cuenta: 1
+Id: 9, Dinero movido: -300.0, Fecha: 2024-03-07 19:27:29.0, Cuenta: 1
+Id: 10, Dinero movido: 300.0, Fecha: 2024-03-07 19:27:45.0, Cuenta: 1
+Id: 11, Dinero movido: 300.0, Fecha: 2024-03-07 19:32:10.0, Cuenta: 1
+Id: 12, Dinero movido: -300.0, Fecha: 2024-03-07 19:32:14.0, Cuenta: 1

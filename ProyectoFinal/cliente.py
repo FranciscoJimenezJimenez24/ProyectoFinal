@@ -40,19 +40,19 @@ def password(socket_cliente):
 def menu():
     if usuario1=="usuario1" and contrasena1=="contrasena1":
         print("""
-            (ING <money> <id_cuenta>) Ingresa dinero
-            (RET <money> <id_cuenta>) Retirar dinero
-            (MOV <id_cuenta>) ver ultimos movimientos
-            (SENDMOV <id_cuenta>) Enviar fichero con movimiento al cliente
+            (ING <money> <id_cuenta>) Ingresa dinero/ejemplo: ing <300> 1
+            (RET <money> <id_cuenta>) Retirar dinero/ejemplo: ret <300> 1
+            (MOV <id_cuenta>) ver últimos 10 movimientos/ejemplo: mov 1
+            (SENDMOV <id_cuenta>) Enviar fichero con movimiento al cliente/ejemplo: sendmov 1
             (SEECOUNTS) ver el saldo de todas las cuentas
             (QUIT) Abandonar la sesión de cliente
             """)
     else:
         print("""
-            (ING <money> <id_cuenta>) Ingresa dinero
-            (RET <money> <id_cuenta>) Retirar dinero
-            (MOV <id_cuenta>) ver ultimos movimientos
-            (SENDMOV <id_cuenta>) Enviar fichero con movimiento al cliente
+             <money> <id_cuenta>) Ingresa dinero/ejemplo: ing <300> 1
+            (RET <money> <id_cuenta>) Retirar dinero/ejemplo: ret <300> 1
+            (MOV <id_cuenta>) ver últimos 10 movimientos/ejemplo: mov 1
+            (SENDMOV <id_cuenta>) Enviar fichero con movimiento al cliente/ejemplo: sendmov 1
             (QUIT) Abandonar la sesión de cliente
             """)
     
@@ -75,14 +75,22 @@ def control(socket_cliente):
         socket_cliente.send(f"{comando}\r\n".encode())
         if comando.startswith("sendmov") :
             encrypted_data = socket_cliente.recv(1024)
-            iv = socket_cliente.recv(16)  # Recibir el vector de inicialización
-            decrypted_data = decrypt_data(encrypted_data, iv)
-            with open('movimientos.txt', 'wb') as f:
-                f.write(decrypted_data)
-            print("File decrypted and saved as 'movimientos.txt'.")
-
-        mensaje_servidor = socket_cliente.recv(1024).decode()
-        print(mensaje_servidor)
+            if encrypted_data != b'Esa cuenta no existe\r\n' and encrypted_data != b"Ese comando es incorrecto\r\n":
+                # Se recibió un archivo
+                iv = socket_cliente.recv(16)  # Recibir el vector de inicialización
+                decrypted_data = decrypt_data(encrypted_data, iv)
+                with open('movimientos.txt', 'wb') as f:
+                    f.write(decrypted_data)
+                print("File decrypted and saved as 'movimientos.txt'.")
+                mensaje_servidor = socket_cliente.recv(1024).decode()
+                print(mensaje_servidor)
+            else:
+                # Se recibió un mensaje de error
+                mensaje = encrypted_data.decode()
+                print("Error:", mensaje.strip())
+        else:
+            mensaje_servidor = socket_cliente.recv(1024).decode()
+            print(mensaje_servidor)
 
 try:
     context = ssl.create_default_context()
