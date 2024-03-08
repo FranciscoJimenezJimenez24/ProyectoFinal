@@ -4,6 +4,7 @@ import java.io.BufferedInputStream;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -63,6 +64,8 @@ public class Servidor {
 	private static ExecutorService executor;
 	private static boolean user=false;
 	private static boolean password=false;
+	private static boolean cuenta=false;
+	private static boolean yourCount=false;
 	
 	static {
 		try {
@@ -163,39 +166,48 @@ public class Servidor {
     }
 
     private boolean ingresarDinero(int dinero,int id_cuenta) {
+    	cuenta=countExist(id_cuenta);
+        yourCount=isYourCount(id_cuenta);
     	String sql="UPDATE cuentas SET saldo=saldo+? WHERE id_cuenta=?";
-    	try (PreparedStatement statement=conexion.prepareStatement(sql)){
-    		statement.setInt(1, dinero);
-    		statement.setInt(2, id_cuenta);
-    		if (statement.executeUpdate()==1) {
-    			LOGGER.log(Level.INFO, "Se ingresó correctamente el dinero en la cuenta con ID: " + id_cuenta);
-    			modificateMovimientos(dinero,id_cuenta);
-    			return true;
-    		}
-    		statement.close();
-    	} catch (SQLException e) {
-			// TODO Auto-generated catch block
-    		LOGGER.log(Level.SEVERE, "Error al intentar ingresar dinero en la cuenta con ID: " + id_cuenta, e);
-			e.printStackTrace();
+    	if (yourCount) {
+    		try (PreparedStatement statement=conexion.prepareStatement(sql)){
+        		statement.setInt(1, dinero);
+        		statement.setInt(2, id_cuenta);
+        		if (statement.executeUpdate()==1) {
+        			LOGGER.log(Level.INFO, "Se ingresó correctamente el dinero en la cuenta con ID: " + id_cuenta);
+        			modificateMovimientos(dinero,id_cuenta);
+        			return true;
+        		}
+        		statement.close();
+        	} catch (SQLException e) {
+    			// TODO Auto-generated catch block
+        		LOGGER.log(Level.SEVERE, "Error al intentar ingresar dinero en la cuenta con ID: " + id_cuenta, e);
+    			e.printStackTrace();
+        	}
     	}
+    	
     	return false;
     }
     
     private boolean retirarDinero(int dinero,int id_cuenta) {
+    	cuenta=countExist(id_cuenta);
+        yourCount=isYourCount(id_cuenta);
     	String sql="UPDATE cuentas SET saldo=saldo-? WHERE id_cuenta=?";
-    	try (PreparedStatement statement=conexion.prepareStatement(sql)){
-    		statement.setInt(1, dinero);
-    		statement.setInt(2, id_cuenta);
-    		if (statement.executeUpdate()==1) {
-    			LOGGER.log(Level.INFO, "Se retiró correctamente el dinero de la cuenta con ID: " + id_cuenta);
-    			modificateMovimientos(-dinero,id_cuenta);
-    			return true;
-    		}
-    		statement.close();
-    	} catch (SQLException e) {
-			// TODO Auto-generated catch block
-    		LOGGER.log(Level.SEVERE, "Error al intentar retirar dinero de la cuenta con ID: " + id_cuenta, e);
-			e.printStackTrace();
+    	if (yourCount) {
+    		try (PreparedStatement statement=conexion.prepareStatement(sql)){
+        		statement.setInt(1, dinero);
+        		statement.setInt(2, id_cuenta);
+        		if (statement.executeUpdate()==1) {
+        			LOGGER.log(Level.INFO, "Se retiró correctamente el dinero de la cuenta con ID: " + id_cuenta);
+        			modificateMovimientos(-dinero,id_cuenta);
+        			return true;
+        		}
+        		statement.close();
+        	} catch (SQLException e) {
+    			// TODO Auto-generated catch block
+        		LOGGER.log(Level.SEVERE, "Error al intentar retirar dinero de la cuenta con ID: " + id_cuenta, e);
+    			e.printStackTrace();
+        	}
     	}
     	return false;
     }
@@ -227,70 +239,112 @@ public class Servidor {
 		}
     }
     
-    private ArrayList<String> showMovimientos(int id_cuenta){
-    	String sql="SELECT * FROM (SELECT * FROM movimientos WHERE id_cuenta=? ORDER BY fecha DESC LIMIT 10) sub ORDER BY fecha ASC";
-    	int id_movimiento;
-    	double dinero_movido;
-    	Timestamp timestamp;
-    	ArrayList<String> listaMovimientos=new ArrayList<String>();
-    	try (PreparedStatement statement=conexion.prepareStatement(sql)){
-    		statement.setInt(1,id_cuenta);
-    		ResultSet result=statement.executeQuery();
-    		while (result.next()) {
-				id_movimiento=result.getInt("id_movimiento");
-				dinero_movido=result.getDouble("dinero_movido");
-				timestamp=result.getTimestamp("fecha");
-				listaMovimientos.add("Id: "+id_movimiento+", Dinero movido: "+dinero_movido+", Fecha: "+timestamp+", Cuenta: "+id_cuenta);
-    		}
+    private boolean countExist(int id_cuenta) {
+    	String sqlCuenta="SELECT id_cuenta FROM cuentas WHERE id_cuenta=?";
+    	try (PreparedStatement statement=conexion.prepareStatement(sqlCuenta)){
+    		statement.setInt(1, id_cuenta);
+    		 ResultSet result = statement.executeQuery();
+             if (result.next()) {
+            	 return true;
+             }
     	} catch (SQLException e) {
 			// TODO Auto-generated catch block
-    		LOGGER.log(Level.SEVERE, "Error al intentar obtener los movimientos de la cuenta con ID: " + id_cuenta, e);
 			e.printStackTrace();
 		}
-    	return listaMovimientos;
+    	return false;
     }
     
-    private boolean sendFicheroMovimientos(long id_cuenta) {
-    	String sql="SELECT * FROM movimientos where id_cuenta=?";
-    	int id_movimiento;
-    	double dinero_movido;
-    	Timestamp timestamp;
-    	ArrayList<String> listaMovimientos=new ArrayList<String>();
-    	try (PreparedStatement statement=conexion.prepareStatement(sql)){
-    		statement.setLong(1,id_cuenta);
-    		ResultSet result=statement.executeQuery();
-			if (result.next()) {
-				while (result.next()) {
-					id_movimiento=result.getInt("id_movimiento");
-	    			dinero_movido=result.getDouble("dinero_movido");
-	    			timestamp=result.getTimestamp("fecha");
-	    			listaMovimientos.add("Id: "+id_movimiento+", Dinero movido: "+dinero_movido+", Fecha: "+timestamp+", Cuenta: "+id_cuenta);
-				}
-    		}else {
-    			return false;
-    		}
-			
-    		
-    		
+    private boolean isYourCount(int id_cuenta) {
+    	String sqlCuenta="SELECT id_cuenta FROM cuentas WHERE id_cuenta=? AND id_usuario=?";
+    	try (PreparedStatement statement=conexion.prepareStatement(sqlCuenta)){
+    		statement.setInt(1, id_cuenta);
+    		statement.setInt(2, id_usuario);
+    		 ResultSet result = statement.executeQuery();
+             if (result.next()) {
+            	 return true;
+             }
     	} catch (SQLException e) {
 			// TODO Auto-generated catch block
-    		LOGGER.log(Level.SEVERE, "Error al intentar obtener los movimientos para enviar el fichero de la cuenta con ID: " + id_cuenta, e);
 			e.printStackTrace();
 		}
-    	File f=new File("fichero.txt");
-    	try {
-			FileWriter writer=new FileWriter(f);
-			for (String movimiento : listaMovimientos) {
-				writer.write(movimiento+"\n");
-			}
-			writer.close();
-			LOGGER.log(Level.INFO, "Se creó correctamente el fichero de movimientos para la cuenta con ID: " + id_cuenta);
-			return true;
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			LOGGER.log(Level.SEVERE, "Error al intentar crear el fichero de movimientos para la cuenta con ID: " + id_cuenta, e);
-			e.printStackTrace();
-		}
+    	return false;
+    }
+    
+    private ArrayList<String> showMovimientos(int id_cuenta) {
+        String sql = "SELECT * FROM (SELECT * FROM movimientos WHERE id_cuenta=? ORDER BY fecha DESC LIMIT 10) sub ORDER BY fecha ASC";
+        cuenta=countExist(id_cuenta);
+        yourCount=isYourCount(id_cuenta);
+        int id_movimiento;
+        double dinero_movido;
+        Timestamp timestamp;
+        
+        ArrayList<String> listaMovimientos = new ArrayList<String>();
+        if (yourCount) {
+        	try (PreparedStatement statement = conexion.prepareStatement(sql)) {
+                statement.setInt(1, id_cuenta);
+                ResultSet result = statement.executeQuery();
+                if (result.next()) {
+                	while (result.next()) {
+                        id_movimiento = result.getInt("id_movimiento");
+                        dinero_movido = result.getDouble("dinero_movido");
+                        timestamp = result.getTimestamp("fecha");
+                        listaMovimientos.add("Id: " + id_movimiento + ", Dinero movido: " + dinero_movido + ", Fecha: " + timestamp + ", Cuenta: " + id_cuenta);
+                    }
+                }
+            } catch (SQLException e) {
+                LOGGER.log(Level.SEVERE, "Error al intentar obtener los movimientos de la cuenta con ID: " + id_cuenta, e);
+                e.printStackTrace();
+            }
+        }
+        
+        return listaMovimientos;
+    }
+    
+    private boolean sendFicheroMovimientos(int id_cuenta) {
+    	cuenta=countExist(id_cuenta);
+        yourCount=isYourCount(id_cuenta);
+        if (yourCount) {
+        	String sql="SELECT * FROM movimientos where id_cuenta=?";
+        	int id_movimiento;
+        	double dinero_movido;
+        	Timestamp timestamp;
+        	ArrayList<String> listaMovimientos=new ArrayList<String>();
+        	try (PreparedStatement statement=conexion.prepareStatement(sql)){
+        		statement.setLong(1,id_cuenta);
+        		ResultSet result=statement.executeQuery();
+    			if (result.next()) {
+    				while (result.next()) {
+    					id_movimiento=result.getInt("id_movimiento");
+    	    			dinero_movido=result.getDouble("dinero_movido");
+    	    			timestamp=result.getTimestamp("fecha");
+    	    			listaMovimientos.add("Id: "+id_movimiento+", Dinero movido: "+dinero_movido+", Fecha: "+timestamp+", Cuenta: "+id_cuenta);
+    				}
+        		}else {
+        			return false;
+        		}
+    			
+        		
+        		
+        	} catch (SQLException e) {
+    			// TODO Auto-generated catch block
+        		LOGGER.log(Level.SEVERE, "Error al intentar obtener los movimientos para enviar el fichero de la cuenta con ID: " + id_cuenta, e);
+    			e.printStackTrace();
+    		}
+        	File f=new File("fichero.txt");
+        	try {
+    			FileWriter writer=new FileWriter(f);
+    			for (String movimiento : listaMovimientos) {
+    				writer.write(movimiento+"\n");
+    			}
+    			writer.close();
+    			LOGGER.log(Level.INFO, "Se creó correctamente el fichero de movimientos para la cuenta con ID: " + id_cuenta);
+    			return true;
+    		} catch (IOException e) {
+    			// TODO Auto-generated catch block
+    			LOGGER.log(Level.SEVERE, "Error al intentar crear el fichero de movimientos para la cuenta con ID: " + id_cuenta, e);
+    			e.printStackTrace();
+    		}
+        }
     	return false;
     }
     
@@ -339,7 +393,7 @@ public class Servidor {
         PrintWriter writer = new PrintWriter(socket.getOutputStream(), true);
         
         String opcion="";
-        while (opcion!="quit") {
+        while (!opcion.equalsIgnoreCase("quit")) {
         	opcion = reader.readLine().trim();
         	try {
 
@@ -359,7 +413,11 @@ public class Servidor {
                         if (ingresarDinero(dinero, id_cuenta)) {
                         	writer.println("+OK Ingreso dinero");
                         }else {
-                        	writer.println("Esa cuenta no existe");
+                        	if (!yourCount && cuenta) {
+                        		writer.println("No tiene acceso a esa cuenta");
+                        	}else if (!cuenta){
+                        		writer.println("Esa cuenta no existe");
+                        	}
                         }
                     }else {
                     	writer.println("Comando incorrecto");
@@ -378,7 +436,11 @@ public class Servidor {
                         if (retirarDinero(dinero, id_cuenta)) {
                         	writer.println("+OK Retirada dinero");
                         }else {
-                        	writer.println("Esa cuenta no existe"); 
+                        	if (!yourCount && cuenta) {
+                        		writer.println("No tiene acceso a esa cuenta");
+                        	}else if (!cuenta){
+                        		writer.println("Esa cuenta no existe");
+                        	}
                         }
                     }else {
                     	writer.println("Comando incorrecto");
@@ -395,35 +457,43 @@ public class Servidor {
             			}
                     	writer.println(movimientos);
                     }else {
-                    	writer.println("No hay ningún movimiento en esta cuenta");
+                    	if (!yourCount && cuenta) {
+                    		writer.println("No tiene acceso a esa cuenta");
+                    	}else if (!cuenta){
+                    		writer.println("Esa cuenta no existe");
+                    	}else {
+                    		writer.println("No hay ningún movimiento en esta cuenta");
+                    	}
+                    	
                     }
                 }else if (opcion.startsWith("sendmov")) {
                 	String numeroStr = opcion.substring(8).trim();
-                	long id_cuenta = Integer.parseInt(numeroStr);
+                	int id_cuenta = Integer.parseInt(numeroStr);
                 	if (sendFicheroMovimientos(id_cuenta)) {
+                		try {
+                		    OutputStream outputStream = socket.getOutputStream();
+                		    String nombreArchivo = "fichero.txt";
+                		    File archivo = new File(nombreArchivo);
+                		    BufferedReader br = new BufferedReader(new FileReader(archivo));
+                		    String linea;
+                		    while ((linea = br.readLine()) != null) {
+                		        outputStream.write(linea.getBytes());
+                		        outputStream.write("\n".getBytes());
+                		        System.out.println("mensaje");// Agregar un salto de línea al final de cada línea si es necesario
+                		    }
+                		    br.close();
+                		    outputStream.close();
+                		} catch (Exception e) {
+                		    LOGGER.log(Level.SEVERE, "Error al leer el fichero de movimientos", e);
+                		    e.printStackTrace();
+                		}
                 		
-                		File file = new File("fichero.txt");
-                        byte[] fileBytes = new byte[(int) file.length()];
-                        FileInputStream fis = new FileInputStream(file);
-                        BufferedInputStream bis = new BufferedInputStream(fis);
-                        bis.read(fileBytes, 0, fileBytes.length);
-
-                        // Encrypt fileBytes
-                        byte[] encryptedBytes;
-    					try {
-    						encryptedBytes = encrypt(fileBytes);
-    						OutputStream os = socket.getOutputStream();
-    	                    os.write(encryptedBytes, 0, encryptedBytes.length);
-    	                    os.flush();
-    	                    writer.println("Se envio correctamente el fichero"); 
-    					} catch (InvalidKeyException | NoSuchAlgorithmException | IllegalBlockSizeException | BadPaddingException e) {
-    						// TODO Auto-generated catch block
-    						LOGGER.log(Level.SEVERE, "Error al cifrar el fichero de movimientos para la cuenta con ID: " + id_cuenta, e);
-    						e.printStackTrace();
-    					} 
-    					
                 	}else {
-                		writer.println("Esa cuenta no existe"); 
+                		if (!yourCount && cuenta) {
+                    		writer.println("No tiene acceso a esa cuenta");
+                    	}else if (!cuenta){
+                    		writer.println("Esa cuenta no existe");
+                    	}
                 	}
                 }else if (opcion.equalsIgnoreCase("seecounts") && user && password) {
             		writer.println(mostrarDineroActual());
@@ -493,13 +563,6 @@ public class Servidor {
 			e.printStackTrace();
 		}
     	return id_usuario;
-    }
-    
-    private static byte[] encrypt(byte[] input) throws NoSuchAlgorithmException, NoSuchPaddingException, InvalidKeyException, IllegalBlockSizeException, BadPaddingException {
-        SecretKeySpec keySpec = new SecretKeySpec("0123456789abcdef".getBytes(), "AES");
-        Cipher cipher = Cipher.getInstance("AES/CBC/PKCS5Padding"); // Modo CBC y esquema de relleno PKCS5Padding
-        cipher.init(Cipher.ENCRYPT_MODE, keySpec);
-        return cipher.doFinal(input);
     }
     
     public static String mostrarDineroActual() {

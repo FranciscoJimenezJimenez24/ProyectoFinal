@@ -49,22 +49,12 @@ def menu():
             """)
     else:
         print("""
-             <money> <id_cuenta>) Ingresa dinero/ejemplo: ing <300> 1
+            (ING <money> <id_cuenta>) Ingresa dinero/ejemplo: ing <300> 1
             (RET <money> <id_cuenta>) Retirar dinero/ejemplo: ret <300> 1
             (MOV <id_cuenta>) ver últimos 10 movimientos/ejemplo: mov 1
             (SENDMOV <id_cuenta>) Enviar fichero con movimiento al cliente/ejemplo: sendmov 1
             (QUIT) Abandonar la sesión de cliente
             """)
-    
-def decrypt_data(encrypted_data, iv):
-    aes_key = b'0123456789abcdef'  # 16-byte key for AES decryption
-    cipher = Cipher(algorithms.AES(aes_key), modes.CBC(iv), backend=default_backend())
-    decryptor = cipher.decryptor()
-    decrypted_data = decryptor.update(encrypted_data) + decryptor.finalize()
-    print("Data decrypted.")
-    unpadder = padding.PKCS7(128).unpadder()
-    decrypted_data = unpadder.update(decrypted_data) + unpadder.finalize()
-    return decrypted_data
 
 def control(socket_cliente):
     comando=""
@@ -73,15 +63,16 @@ def control(socket_cliente):
         menu()
         comando=input("Comando: ").lower()
         socket_cliente.send(f"{comando}\r\n".encode())
-        if comando.startswith("sendmov") :
+        if comando.startswith("sendmov"):
             encrypted_data = socket_cliente.recv(1024)
             if encrypted_data != b'Esa cuenta no existe\r\n' and encrypted_data != b"Ese comando es incorrecto\r\n":
-                # Se recibió un archivo
-                iv = socket_cliente.recv(16)  # Recibir el vector de inicialización
-                decrypted_data = decrypt_data(encrypted_data, iv)
                 with open('movimientos.txt', 'wb') as f:
-                    f.write(decrypted_data)
-                print("File decrypted and saved as 'movimientos.txt'.")
+                    while True:
+                        data = socket_cliente.recv(1024)            
+                        if not data:
+                            break
+                        f.write(data)
+                print("File received successfully.")
                 mensaje_servidor = socket_cliente.recv(1024).decode()
                 print(mensaje_servidor)
             else:

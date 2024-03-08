@@ -3066,3 +3066,1075 @@ mar 07, 2024 9:01:26 P. M. jimenezfranciscoProyectoFinal.Servidor main
 DETALLADO: El servidor esperando
 mar 07, 2024 9:10:50 P. M. jimenezfranciscoProyectoFinal.Servidor opciones
 DETALLADO: El servidor recibe el comando
+mar 08, 2024 6:28:36 P. M. jimenezfranciscoProyectoFinal.Servidor main
+DETALLADO: El servidor esperando
+mar 08, 2024 6:29:04 P. M. jimenezfranciscoProyectoFinal.Servidor opciones
+DETALLADO: El servidor recibe el comando
+mar 08, 2024 6:29:04 P. M. jimenezfranciscoProyectoFinal.Servidor ingresarDinero
+INFORMACIÓN: Se ingresó correctamente el dinero en la cuenta con ID: 1
+mar 08, 2024 6:29:13 P. M. jimenezfranciscoProyectoFinal.Servidor opciones
+DETALLADO: El servidor recibe el comando
+mar 08, 2024 6:29:13 P. M. jimenezfranciscoProyectoFinal.Servidor ingresarDinero
+INFORMACIÓN: Se ingresó correctamente el dinero en la cuenta con ID: 2
+mar 08, 2024 6:29:18 P. M. jimenezfranciscoProyectoFinal.Servidor opciones
+DETALLADO: El servidor recibe el comando
+mar 08, 2024 6:29:20 P. M. jimenezfranciscoProyectoFinal.Servidor opciones
+DETALLADO: El servidor recibe el comando
+mar 08, 2024 6:29:48 P. M. jimenezfranciscoProyectoFinal.Servidor opciones
+DETALLADO: El servidor recibe el comando
+mar 08, 2024 6:30:10 P. M. jimenezfranciscoProyectoFinal.Servidor opciones
+DETALLADO: El servidor recibe el comando
+mar 08, 2024 6:30:10 P. M. jimenezfranciscoProyectoFinal.Servidor ingresarDinero
+INFORMACIÓN: Se ingresó correctamente el dinero en la cuenta con ID: 1
+mar 08, 2024 6:30:14 P. M. jimenezfranciscoProyectoFinal.Servidor opciones
+DETALLADO: El servidor recibe el comando
+mar 08, 2024 6:32:01 P. M. jimenezfranciscoProyectoFinal.Servidor main
+DETALLADO: El servidor esperando
+mar 08, 2024 6:33:42 P. M. jimenezfranciscoProyectoFinal.Servidor main
+DETALLADO: El servidor esperando
+mar 08, 2024 6:33:58 P. M. jimenezfranciscoProyectoFinal.Servidor opciones
+DETALLADO: El servidor recibe el comando
+mar 08, 2024 6:33:58 P. M. jimenezfranciscoProyectoFinal.Servidor showMovimientos
+GRAVE: Error al intentar obtener los movimientos de la cuenta con ID: 1
+java.sql.SQLSyntaxErrorException: Unknown column 'id_usuario' in 'where clause'
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:120)
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122)
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeInternal(ClientPreparedStatement.java:953)
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeQuery(ClientPreparedStatement.java:1003)
+	at jimenezfranciscoProyectoFinal.Servidor.showMovimientos(Servidor.java:241)
+	at jimenezfranciscoProyectoFinal.Servidor.opciones(Servidor.java:394)
+	at jimenezfranciscoProyectoFinal.Servidor.access$3(Servidor.java:341)
+	at jimenezfranciscoProyectoFinal.Servidor$Client.run(Servidor.java:151)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+
+mar 08, 2024 6:36:48 P. M. jimenezfranciscoProyectoFinal.Servidor main
+DETALLADO: El servidor esperando
+mar 08, 2024 6:38:40 P. M. jimenezfranciscoProyectoFinal.Servidor main
+DETALLADO: El servidor esperando
+mar 08, 2024 6:38:55 P. M. jimenezfranciscoProyectoFinal.Servidor opciones
+DETALLADO: El servidor recibe el comando
+mar 08, 2024 6:39:19 P. M. jimenezfranciscoProyectoFinal.Servidor showMovimientos
+GRAVE: Error al intentar obtener los movimientos de la cuenta con ID: 1
+java.sql.SQLSyntaxErrorException: Unknown column 'id_usuario' in 'where clause'
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:120)
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122)
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeInternal(ClientPreparedStatement.java:953)
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeQuery(ClientPreparedStatement.java:1003)
+	at jimenezfranciscoProyectoFinal.Servidor.showMovimientos(Servidor.java:241)
+	at jimenezfranciscoProyectoFinal.Servidor.opciones(Servidor.java:393)
+	at jimenezfranciscoProyectoFinal.Servidor.access$3(Servidor.java:340)
+	at jimenezfranciscoProyectoFinal.Servidor$Client.run(Servidor.java:151)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+
+mar 08, 2024 6:47:14 P. M. jimenezfranciscoProyectoFinal.Servidor main
+DETALLADO: El servidor esperando
+mar 08, 2024 6:47:26 P. M. jimenezfranciscoProyectoFinal.Servidor opciones
+DETALLADO: El servidor recibe el comando
+mar 08, 2024 6:47:26 P. M. jimenezfranciscoProyectoFinal.Servidor showMovimientos
+GRAVE: Error al intentar obtener los movimientos de la cuenta con ID: 1
+java.sql.SQLSyntaxErrorException: Unknown column 'id_usuario' in 'where clause'
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:120)
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122)
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeInternal(ClientPreparedStatement.java:953)
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeQuery(ClientPreparedStatement.java:1003)
+	at jimenezfranciscoProyectoFinal.Servidor.showMovimientos(Servidor.java:258)
+	at jimenezfranciscoProyectoFinal.Servidor.opciones(Servidor.java:412)
+	at jimenezfranciscoProyectoFinal.Servidor.access$3(Servidor.java:359)
+	at jimenezfranciscoProyectoFinal.Servidor$Client.run(Servidor.java:152)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+
+mar 08, 2024 6:47:40 P. M. jimenezfranciscoProyectoFinal.Servidor opciones
+DETALLADO: El servidor recibe el comando
+mar 08, 2024 6:47:40 P. M. jimenezfranciscoProyectoFinal.Servidor showMovimientos
+GRAVE: Error al intentar obtener los movimientos de la cuenta con ID: 5
+java.sql.SQLSyntaxErrorException: Unknown column 'id_usuario' in 'where clause'
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:120)
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122)
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeInternal(ClientPreparedStatement.java:953)
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeQuery(ClientPreparedStatement.java:1003)
+	at jimenezfranciscoProyectoFinal.Servidor.showMovimientos(Servidor.java:258)
+	at jimenezfranciscoProyectoFinal.Servidor.opciones(Servidor.java:412)
+	at jimenezfranciscoProyectoFinal.Servidor.access$3(Servidor.java:359)
+	at jimenezfranciscoProyectoFinal.Servidor$Client.run(Servidor.java:152)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+
+mar 08, 2024 6:47:46 P. M. jimenezfranciscoProyectoFinal.Servidor opciones
+DETALLADO: El servidor recibe el comando
+mar 08, 2024 6:47:46 P. M. jimenezfranciscoProyectoFinal.Servidor showMovimientos
+GRAVE: Error al intentar obtener los movimientos de la cuenta con ID: 3
+java.sql.SQLSyntaxErrorException: Unknown column 'id_usuario' in 'where clause'
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:120)
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122)
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeInternal(ClientPreparedStatement.java:953)
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeQuery(ClientPreparedStatement.java:1003)
+	at jimenezfranciscoProyectoFinal.Servidor.showMovimientos(Servidor.java:258)
+	at jimenezfranciscoProyectoFinal.Servidor.opciones(Servidor.java:412)
+	at jimenezfranciscoProyectoFinal.Servidor.access$3(Servidor.java:359)
+	at jimenezfranciscoProyectoFinal.Servidor$Client.run(Servidor.java:152)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+
+mar 08, 2024 6:55:14 P. M. jimenezfranciscoProyectoFinal.Servidor main
+DETALLADO: El servidor esperando
+mar 08, 2024 6:55:28 P. M. jimenezfranciscoProyectoFinal.Servidor opciones
+DETALLADO: El servidor recibe el comando
+mar 08, 2024 6:56:07 P. M. jimenezfranciscoProyectoFinal.Servidor main
+DETALLADO: El servidor esperando
+mar 08, 2024 6:56:21 P. M. jimenezfranciscoProyectoFinal.Servidor opciones
+DETALLADO: El servidor recibe el comando
+mar 08, 2024 6:56:25 P. M. jimenezfranciscoProyectoFinal.Servidor opciones
+DETALLADO: El servidor recibe el comando
+mar 08, 2024 6:56:30 P. M. jimenezfranciscoProyectoFinal.Servidor opciones
+DETALLADO: El servidor recibe el comando
+mar 08, 2024 6:58:29 P. M. jimenezfranciscoProyectoFinal.Servidor main
+DETALLADO: El servidor esperando
+mar 08, 2024 6:58:50 P. M. jimenezfranciscoProyectoFinal.Servidor opciones
+DETALLADO: El servidor recibe el comando
+mar 08, 2024 6:58:50 P. M. jimenezfranciscoProyectoFinal.Servidor ingresarDinero
+INFORMACIÓN: Se ingresó correctamente el dinero en la cuenta con ID: 1
+mar 08, 2024 6:59:14 P. M. jimenezfranciscoProyectoFinal.Servidor opciones
+DETALLADO: El servidor recibe el comando
+mar 08, 2024 6:59:35 P. M. jimenezfranciscoProyectoFinal.Servidor opciones
+DETALLADO: El servidor recibe el comando
+mar 08, 2024 6:59:56 P. M. jimenezfranciscoProyectoFinal.Servidor main
+DETALLADO: El servidor esperando
+mar 08, 2024 7:00:09 P. M. jimenezfranciscoProyectoFinal.Servidor opciones
+DETALLADO: El servidor recibe el comando
+mar 08, 2024 7:02:02 P. M. jimenezfranciscoProyectoFinal.Servidor main
+DETALLADO: El servidor esperando
+mar 08, 2024 7:02:23 P. M. jimenezfranciscoProyectoFinal.Servidor opciones
+DETALLADO: El servidor recibe el comando
+mar 08, 2024 7:02:27 P. M. jimenezfranciscoProyectoFinal.Servidor opciones
+DETALLADO: El servidor recibe el comando
+mar 08, 2024 7:02:29 P. M. jimenezfranciscoProyectoFinal.Servidor opciones
+DETALLADO: El servidor recibe el comando
+mar 08, 2024 7:02:32 P. M. jimenezfranciscoProyectoFinal.Servidor opciones
+DETALLADO: El servidor recibe el comando
+mar 08, 2024 7:03:32 P. M. jimenezfranciscoProyectoFinal.Servidor main
+DETALLADO: El servidor esperando
+mar 08, 2024 7:03:46 P. M. jimenezfranciscoProyectoFinal.Servidor opciones
+DETALLADO: El servidor recibe el comando
+mar 08, 2024 7:03:46 P. M. jimenezfranciscoProyectoFinal.Servidor ingresarDinero
+INFORMACIÓN: Se ingresó correctamente el dinero en la cuenta con ID: 1
+mar 08, 2024 7:03:54 P. M. jimenezfranciscoProyectoFinal.Servidor opciones
+DETALLADO: El servidor recibe el comando
+mar 08, 2024 7:04:01 P. M. jimenezfranciscoProyectoFinal.Servidor opciones
+DETALLADO: El servidor recibe el comando
+mar 08, 2024 7:04:08 P. M. jimenezfranciscoProyectoFinal.Servidor opciones
+DETALLADO: El servidor recibe el comando
+mar 08, 2024 7:04:08 P. M. jimenezfranciscoProyectoFinal.Servidor retirarDinero
+INFORMACIÓN: Se retiró correctamente el dinero de la cuenta con ID: 1
+mar 08, 2024 7:04:18 P. M. jimenezfranciscoProyectoFinal.Servidor opciones
+DETALLADO: El servidor recibe el comando
+mar 08, 2024 7:04:24 P. M. jimenezfranciscoProyectoFinal.Servidor opciones
+DETALLADO: El servidor recibe el comando
+mar 08, 2024 7:06:16 P. M. jimenezfranciscoProyectoFinal.Servidor opciones
+DETALLADO: El servidor recibe el comando
+mar 08, 2024 7:06:16 P. M. jimenezfranciscoProyectoFinal.Servidor sendFicheroMovimientos
+GRAVE: Error al intentar obtener los movimientos para enviar el fichero de la cuenta con ID: 1
+java.sql.SQLException: Parameter index out of range (2 > number of parameters, which is 1).
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:129)
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:97)
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:89)
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:63)
+	at com.mysql.cj.jdbc.ClientPreparedStatement.checkBounds(ClientPreparedStatement.java:1375)
+	at com.mysql.cj.jdbc.ClientPreparedStatement.getCoreParameterIndex(ClientPreparedStatement.java:1388)
+	at com.mysql.cj.jdbc.ClientPreparedStatement.setInt(ClientPreparedStatement.java:1576)
+	at jimenezfranciscoProyectoFinal.Servidor.sendFicheroMovimientos(Servidor.java:310)
+	at jimenezfranciscoProyectoFinal.Servidor.opciones(Servidor.java:468)
+	at jimenezfranciscoProyectoFinal.Servidor.access$3(Servidor.java:387)
+	at jimenezfranciscoProyectoFinal.Servidor$Client.run(Servidor.java:153)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+
+mar 08, 2024 7:06:16 P. M. jimenezfranciscoProyectoFinal.Servidor sendFicheroMovimientos
+INFORMACIÓN: Se creó correctamente el fichero de movimientos para la cuenta con ID: 1
+mar 08, 2024 7:07:47 P. M. jimenezfranciscoProyectoFinal.Servidor main
+DETALLADO: El servidor esperando
+mar 08, 2024 7:07:56 P. M. jimenezfranciscoProyectoFinal.Servidor opciones
+DETALLADO: El servidor recibe el comando
+mar 08, 2024 7:07:56 P. M. jimenezfranciscoProyectoFinal.Servidor sendFicheroMovimientos
+INFORMACIÓN: Se creó correctamente el fichero de movimientos para la cuenta con ID: 1
+mar 08, 2024 7:07:56 P. M. jimenezfranciscoProyectoFinal.Servidor$Client run
+GRAVE: Error en la ejecución del cliente
+java.net.SocketException: Connection reset
+	at java.base/sun.nio.ch.NioSocketImpl.implRead(NioSocketImpl.java:328)
+	at java.base/sun.nio.ch.NioSocketImpl.read(NioSocketImpl.java:355)
+	at java.base/sun.nio.ch.NioSocketImpl$1.read(NioSocketImpl.java:808)
+	at java.base/java.net.Socket$SocketInputStream.read(Socket.java:966)
+	at java.base/sun.security.ssl.SSLSocketInputRecord.read(SSLSocketInputRecord.java:484)
+	at java.base/sun.security.ssl.SSLSocketInputRecord.readHeader(SSLSocketInputRecord.java:478)
+	at java.base/sun.security.ssl.SSLSocketInputRecord.bytesInCompletePacket(SSLSocketInputRecord.java:70)
+	at java.base/sun.security.ssl.SSLSocketImpl.readApplicationRecord(SSLSocketImpl.java:1465)
+	at java.base/sun.security.ssl.SSLSocketImpl$AppInputStream.read(SSLSocketImpl.java:1069)
+	at java.base/sun.nio.cs.StreamDecoder.readBytes(StreamDecoder.java:270)
+	at java.base/sun.nio.cs.StreamDecoder.implRead(StreamDecoder.java:313)
+	at java.base/sun.nio.cs.StreamDecoder.read(StreamDecoder.java:188)
+	at java.base/java.io.InputStreamReader.read(InputStreamReader.java:177)
+	at java.base/java.io.BufferedReader.fill(BufferedReader.java:162)
+	at java.base/java.io.BufferedReader.readLine(BufferedReader.java:329)
+	at java.base/java.io.BufferedReader.readLine(BufferedReader.java:396)
+	at jimenezfranciscoProyectoFinal.Servidor.opciones(Servidor.java:392)
+	at jimenezfranciscoProyectoFinal.Servidor.access$3(Servidor.java:386)
+	at jimenezfranciscoProyectoFinal.Servidor$Client.run(Servidor.java:153)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+
+mar 08, 2024 7:08:19 P. M. jimenezfranciscoProyectoFinal.Servidor main
+DETALLADO: El servidor esperando
+mar 08, 2024 7:08:35 P. M. jimenezfranciscoProyectoFinal.Servidor opciones
+DETALLADO: El servidor recibe el comando
+mar 08, 2024 7:09:22 P. M. jimenezfranciscoProyectoFinal.Servidor sendFicheroMovimientos
+INFORMACIÓN: Se creó correctamente el fichero de movimientos para la cuenta con ID: 1
+mar 08, 2024 7:10:36 P. M. jimenezfranciscoProyectoFinal.Servidor main
+DETALLADO: El servidor esperando
+mar 08, 2024 7:10:46 P. M. jimenezfranciscoProyectoFinal.Servidor opciones
+DETALLADO: El servidor recibe el comando
+mar 08, 2024 7:10:46 P. M. jimenezfranciscoProyectoFinal.Servidor sendFicheroMovimientos
+INFORMACIÓN: Se creó correctamente el fichero de movimientos para la cuenta con ID: 1
+mar 08, 2024 7:10:46 P. M. jimenezfranciscoProyectoFinal.Servidor$Client run
+GRAVE: Error en la ejecución del cliente
+java.net.SocketException: Connection reset
+	at java.base/sun.nio.ch.NioSocketImpl.implRead(NioSocketImpl.java:328)
+	at java.base/sun.nio.ch.NioSocketImpl.read(NioSocketImpl.java:355)
+	at java.base/sun.nio.ch.NioSocketImpl$1.read(NioSocketImpl.java:808)
+	at java.base/java.net.Socket$SocketInputStream.read(Socket.java:966)
+	at java.base/sun.security.ssl.SSLSocketInputRecord.read(SSLSocketInputRecord.java:484)
+	at java.base/sun.security.ssl.SSLSocketInputRecord.readHeader(SSLSocketInputRecord.java:478)
+	at java.base/sun.security.ssl.SSLSocketInputRecord.bytesInCompletePacket(SSLSocketInputRecord.java:70)
+	at java.base/sun.security.ssl.SSLSocketImpl.readApplicationRecord(SSLSocketImpl.java:1465)
+	at java.base/sun.security.ssl.SSLSocketImpl$AppInputStream.read(SSLSocketImpl.java:1069)
+	at java.base/sun.nio.cs.StreamDecoder.readBytes(StreamDecoder.java:270)
+	at java.base/sun.nio.cs.StreamDecoder.implRead(StreamDecoder.java:313)
+	at java.base/sun.nio.cs.StreamDecoder.read(StreamDecoder.java:188)
+	at java.base/java.io.InputStreamReader.read(InputStreamReader.java:177)
+	at java.base/java.io.BufferedReader.fill(BufferedReader.java:162)
+	at java.base/java.io.BufferedReader.readLine(BufferedReader.java:329)
+	at java.base/java.io.BufferedReader.readLine(BufferedReader.java:396)
+	at jimenezfranciscoProyectoFinal.Servidor.opciones(Servidor.java:392)
+	at jimenezfranciscoProyectoFinal.Servidor.access$3(Servidor.java:386)
+	at jimenezfranciscoProyectoFinal.Servidor$Client.run(Servidor.java:153)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+
+mar 08, 2024 7:20:37 P. M. jimenezfranciscoProyectoFinal.Servidor main
+DETALLADO: El servidor esperando
+mar 08, 2024 7:20:53 P. M. jimenezfranciscoProyectoFinal.Servidor opciones
+DETALLADO: El servidor recibe el comando
+mar 08, 2024 7:20:53 P. M. jimenezfranciscoProyectoFinal.Servidor sendFicheroMovimientos
+INFORMACIÓN: Se creó correctamente el fichero de movimientos para la cuenta con ID: 1
+mar 08, 2024 7:20:53 P. M. jimenezfranciscoProyectoFinal.Servidor opciones
+GRAVE: Error al cifrar el fichero de movimientos para la cuenta con ID: 1
+java.security.NoSuchAlgorithmException: Cannot find any provider supporting AES/CBC/PKCS7Padding
+	at java.base/javax.crypto.Cipher.getInstance(Cipher.java:571)
+	at jimenezfranciscoProyectoFinal.Servidor.encrypt(Servidor.java:563)
+	at jimenezfranciscoProyectoFinal.Servidor.opciones(Servidor.java:477)
+	at jimenezfranciscoProyectoFinal.Servidor.access$3(Servidor.java:386)
+	at jimenezfranciscoProyectoFinal.Servidor$Client.run(Servidor.java:153)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+
+mar 08, 2024 7:25:15 P. M. jimenezfranciscoProyectoFinal.Servidor$Client run
+GRAVE: Error en la ejecución del cliente
+java.net.SocketException: Connection reset
+	at java.base/sun.nio.ch.NioSocketImpl.implRead(NioSocketImpl.java:328)
+	at java.base/sun.nio.ch.NioSocketImpl.read(NioSocketImpl.java:355)
+	at java.base/sun.nio.ch.NioSocketImpl$1.read(NioSocketImpl.java:808)
+	at java.base/java.net.Socket$SocketInputStream.read(Socket.java:966)
+	at java.base/sun.security.ssl.SSLSocketInputRecord.read(SSLSocketInputRecord.java:484)
+	at java.base/sun.security.ssl.SSLSocketInputRecord.readHeader(SSLSocketInputRecord.java:478)
+	at java.base/sun.security.ssl.SSLSocketInputRecord.bytesInCompletePacket(SSLSocketInputRecord.java:70)
+	at java.base/sun.security.ssl.SSLSocketImpl.readApplicationRecord(SSLSocketImpl.java:1465)
+	at java.base/sun.security.ssl.SSLSocketImpl$AppInputStream.read(SSLSocketImpl.java:1069)
+	at java.base/sun.nio.cs.StreamDecoder.readBytes(StreamDecoder.java:270)
+	at java.base/sun.nio.cs.StreamDecoder.implRead(StreamDecoder.java:313)
+	at java.base/sun.nio.cs.StreamDecoder.read(StreamDecoder.java:188)
+	at java.base/java.io.InputStreamReader.read(InputStreamReader.java:177)
+	at java.base/java.io.BufferedReader.fill(BufferedReader.java:162)
+	at java.base/java.io.BufferedReader.readLine(BufferedReader.java:329)
+	at java.base/java.io.BufferedReader.readLine(BufferedReader.java:396)
+	at jimenezfranciscoProyectoFinal.Servidor.opciones(Servidor.java:392)
+	at jimenezfranciscoProyectoFinal.Servidor.access$3(Servidor.java:386)
+	at jimenezfranciscoProyectoFinal.Servidor$Client.run(Servidor.java:153)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+
+mar 08, 2024 7:25:25 P. M. jimenezfranciscoProyectoFinal.Servidor opciones
+DETALLADO: El servidor recibe el comando
+mar 08, 2024 7:25:25 P. M. jimenezfranciscoProyectoFinal.Servidor sendFicheroMovimientos
+INFORMACIÓN: Se creó correctamente el fichero de movimientos para la cuenta con ID: 1
+mar 08, 2024 7:25:25 P. M. jimenezfranciscoProyectoFinal.Servidor opciones
+GRAVE: Error al cifrar el fichero de movimientos para la cuenta con ID: 1
+java.security.NoSuchAlgorithmException: Cannot find any provider supporting AES/CBC/PKCS7Padding
+	at java.base/javax.crypto.Cipher.getInstance(Cipher.java:571)
+	at jimenezfranciscoProyectoFinal.Servidor.encrypt(Servidor.java:563)
+	at jimenezfranciscoProyectoFinal.Servidor.opciones(Servidor.java:477)
+	at jimenezfranciscoProyectoFinal.Servidor.access$3(Servidor.java:386)
+	at jimenezfranciscoProyectoFinal.Servidor$Client.run(Servidor.java:153)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+
+mar 08, 2024 7:25:36 P. M. jimenezfranciscoProyectoFinal.Servidor main
+DETALLADO: El servidor esperando
+mar 08, 2024 7:25:45 P. M. jimenezfranciscoProyectoFinal.Servidor opciones
+DETALLADO: El servidor recibe el comando
+mar 08, 2024 7:25:46 P. M. jimenezfranciscoProyectoFinal.Servidor sendFicheroMovimientos
+INFORMACIÓN: Se creó correctamente el fichero de movimientos para la cuenta con ID: 1
+mar 08, 2024 7:25:46 P. M. jimenezfranciscoProyectoFinal.Servidor$Client run
+GRAVE: Error en la ejecución del cliente
+java.net.SocketException: Connection reset
+	at java.base/sun.nio.ch.NioSocketImpl.implRead(NioSocketImpl.java:328)
+	at java.base/sun.nio.ch.NioSocketImpl.read(NioSocketImpl.java:355)
+	at java.base/sun.nio.ch.NioSocketImpl$1.read(NioSocketImpl.java:808)
+	at java.base/java.net.Socket$SocketInputStream.read(Socket.java:966)
+	at java.base/sun.security.ssl.SSLSocketInputRecord.read(SSLSocketInputRecord.java:484)
+	at java.base/sun.security.ssl.SSLSocketInputRecord.readHeader(SSLSocketInputRecord.java:478)
+	at java.base/sun.security.ssl.SSLSocketInputRecord.bytesInCompletePacket(SSLSocketInputRecord.java:70)
+	at java.base/sun.security.ssl.SSLSocketImpl.readApplicationRecord(SSLSocketImpl.java:1465)
+	at java.base/sun.security.ssl.SSLSocketImpl$AppInputStream.read(SSLSocketImpl.java:1069)
+	at java.base/sun.nio.cs.StreamDecoder.readBytes(StreamDecoder.java:270)
+	at java.base/sun.nio.cs.StreamDecoder.implRead(StreamDecoder.java:313)
+	at java.base/sun.nio.cs.StreamDecoder.read(StreamDecoder.java:188)
+	at java.base/java.io.InputStreamReader.read(InputStreamReader.java:177)
+	at java.base/java.io.BufferedReader.fill(BufferedReader.java:162)
+	at java.base/java.io.BufferedReader.readLine(BufferedReader.java:329)
+	at java.base/java.io.BufferedReader.readLine(BufferedReader.java:396)
+	at jimenezfranciscoProyectoFinal.Servidor.opciones(Servidor.java:392)
+	at jimenezfranciscoProyectoFinal.Servidor.access$3(Servidor.java:386)
+	at jimenezfranciscoProyectoFinal.Servidor$Client.run(Servidor.java:153)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+
+mar 08, 2024 7:30:47 P. M. jimenezfranciscoProyectoFinal.Servidor main
+DETALLADO: El servidor esperando
+mar 08, 2024 7:30:59 P. M. jimenezfranciscoProyectoFinal.Servidor opciones
+DETALLADO: El servidor recibe el comando
+mar 08, 2024 7:30:59 P. M. jimenezfranciscoProyectoFinal.Servidor sendFicheroMovimientos
+INFORMACIÓN: Se creó correctamente el fichero de movimientos para la cuenta con ID: 1
+mar 08, 2024 7:30:59 P. M. jimenezfranciscoProyectoFinal.Servidor$Client run
+GRAVE: Error en la ejecución del cliente
+java.net.SocketException: Connection reset
+	at java.base/sun.nio.ch.NioSocketImpl.implRead(NioSocketImpl.java:328)
+	at java.base/sun.nio.ch.NioSocketImpl.read(NioSocketImpl.java:355)
+	at java.base/sun.nio.ch.NioSocketImpl$1.read(NioSocketImpl.java:808)
+	at java.base/java.net.Socket$SocketInputStream.read(Socket.java:966)
+	at java.base/sun.security.ssl.SSLSocketInputRecord.read(SSLSocketInputRecord.java:484)
+	at java.base/sun.security.ssl.SSLSocketInputRecord.readHeader(SSLSocketInputRecord.java:478)
+	at java.base/sun.security.ssl.SSLSocketInputRecord.bytesInCompletePacket(SSLSocketInputRecord.java:70)
+	at java.base/sun.security.ssl.SSLSocketImpl.readApplicationRecord(SSLSocketImpl.java:1465)
+	at java.base/sun.security.ssl.SSLSocketImpl$AppInputStream.read(SSLSocketImpl.java:1069)
+	at java.base/sun.nio.cs.StreamDecoder.readBytes(StreamDecoder.java:270)
+	at java.base/sun.nio.cs.StreamDecoder.implRead(StreamDecoder.java:313)
+	at java.base/sun.nio.cs.StreamDecoder.read(StreamDecoder.java:188)
+	at java.base/java.io.InputStreamReader.read(InputStreamReader.java:177)
+	at java.base/java.io.BufferedReader.fill(BufferedReader.java:162)
+	at java.base/java.io.BufferedReader.readLine(BufferedReader.java:329)
+	at java.base/java.io.BufferedReader.readLine(BufferedReader.java:396)
+	at jimenezfranciscoProyectoFinal.Servidor.opciones(Servidor.java:392)
+	at jimenezfranciscoProyectoFinal.Servidor.access$3(Servidor.java:386)
+	at jimenezfranciscoProyectoFinal.Servidor$Client.run(Servidor.java:153)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+
+mar 08, 2024 7:31:51 P. M. jimenezfranciscoProyectoFinal.Servidor opciones
+DETALLADO: El servidor recibe el comando
+mar 08, 2024 7:31:51 P. M. jimenezfranciscoProyectoFinal.Servidor sendFicheroMovimientos
+INFORMACIÓN: Se creó correctamente el fichero de movimientos para la cuenta con ID: 1
+mar 08, 2024 7:33:01 P. M. jimenezfranciscoProyectoFinal.Servidor$Client run
+GRAVE: Error en la ejecución del cliente
+java.net.SocketException: Connection reset
+	at java.base/sun.nio.ch.NioSocketImpl.implRead(NioSocketImpl.java:328)
+	at java.base/sun.nio.ch.NioSocketImpl.read(NioSocketImpl.java:355)
+	at java.base/sun.nio.ch.NioSocketImpl$1.read(NioSocketImpl.java:808)
+	at java.base/java.net.Socket$SocketInputStream.read(Socket.java:966)
+	at java.base/sun.security.ssl.SSLSocketInputRecord.read(SSLSocketInputRecord.java:484)
+	at java.base/sun.security.ssl.SSLSocketInputRecord.readHeader(SSLSocketInputRecord.java:478)
+	at java.base/sun.security.ssl.SSLSocketInputRecord.bytesInCompletePacket(SSLSocketInputRecord.java:70)
+	at java.base/sun.security.ssl.SSLSocketImpl.readApplicationRecord(SSLSocketImpl.java:1465)
+	at java.base/sun.security.ssl.SSLSocketImpl$AppInputStream.read(SSLSocketImpl.java:1069)
+	at java.base/sun.nio.cs.StreamDecoder.readBytes(StreamDecoder.java:270)
+	at java.base/sun.nio.cs.StreamDecoder.implRead(StreamDecoder.java:313)
+	at java.base/sun.nio.cs.StreamDecoder.read(StreamDecoder.java:188)
+	at java.base/java.io.InputStreamReader.read(InputStreamReader.java:177)
+	at java.base/java.io.BufferedReader.fill(BufferedReader.java:162)
+	at java.base/java.io.BufferedReader.readLine(BufferedReader.java:329)
+	at java.base/java.io.BufferedReader.readLine(BufferedReader.java:396)
+	at jimenezfranciscoProyectoFinal.Servidor.opciones(Servidor.java:392)
+	at jimenezfranciscoProyectoFinal.Servidor.access$3(Servidor.java:386)
+	at jimenezfranciscoProyectoFinal.Servidor$Client.run(Servidor.java:153)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+
+mar 08, 2024 7:33:15 P. M. jimenezfranciscoProyectoFinal.Servidor opciones
+DETALLADO: El servidor recibe el comando
+mar 08, 2024 7:33:15 P. M. jimenezfranciscoProyectoFinal.Servidor sendFicheroMovimientos
+INFORMACIÓN: Se creó correctamente el fichero de movimientos para la cuenta con ID: 1
+mar 08, 2024 7:35:16 P. M. jimenezfranciscoProyectoFinal.Servidor opciones
+DETALLADO: El servidor recibe el comando
+mar 08, 2024 7:35:16 P. M. jimenezfranciscoProyectoFinal.Servidor sendFicheroMovimientos
+INFORMACIÓN: Se creó correctamente el fichero de movimientos para la cuenta con ID: 1
+mar 08, 2024 7:35:20 P. M. jimenezfranciscoProyectoFinal.Servidor$Client run
+GRAVE: Error en la ejecución del cliente
+java.net.SocketException: Connection reset
+	at java.base/sun.nio.ch.NioSocketImpl.implRead(NioSocketImpl.java:328)
+	at java.base/sun.nio.ch.NioSocketImpl.read(NioSocketImpl.java:355)
+	at java.base/sun.nio.ch.NioSocketImpl$1.read(NioSocketImpl.java:808)
+	at java.base/java.net.Socket$SocketInputStream.read(Socket.java:966)
+	at java.base/sun.security.ssl.SSLSocketInputRecord.read(SSLSocketInputRecord.java:484)
+	at java.base/sun.security.ssl.SSLSocketInputRecord.readHeader(SSLSocketInputRecord.java:478)
+	at java.base/sun.security.ssl.SSLSocketInputRecord.bytesInCompletePacket(SSLSocketInputRecord.java:70)
+	at java.base/sun.security.ssl.SSLSocketImpl.readApplicationRecord(SSLSocketImpl.java:1465)
+	at java.base/sun.security.ssl.SSLSocketImpl$AppInputStream.read(SSLSocketImpl.java:1069)
+	at java.base/sun.nio.cs.StreamDecoder.readBytes(StreamDecoder.java:270)
+	at java.base/sun.nio.cs.StreamDecoder.implRead(StreamDecoder.java:313)
+	at java.base/sun.nio.cs.StreamDecoder.read(StreamDecoder.java:188)
+	at java.base/java.io.InputStreamReader.read(InputStreamReader.java:177)
+	at java.base/java.io.BufferedReader.fill(BufferedReader.java:162)
+	at java.base/java.io.BufferedReader.readLine(BufferedReader.java:329)
+	at java.base/java.io.BufferedReader.readLine(BufferedReader.java:396)
+	at jimenezfranciscoProyectoFinal.Servidor.opciones(Servidor.java:392)
+	at jimenezfranciscoProyectoFinal.Servidor.access$3(Servidor.java:386)
+	at jimenezfranciscoProyectoFinal.Servidor$Client.run(Servidor.java:153)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+
+mar 08, 2024 7:35:21 P. M. jimenezfranciscoProyectoFinal.Servidor$Client run
+GRAVE: Error en la ejecución del cliente
+java.net.SocketException: Connection reset
+	at java.base/sun.nio.ch.NioSocketImpl.implRead(NioSocketImpl.java:328)
+	at java.base/sun.nio.ch.NioSocketImpl.read(NioSocketImpl.java:355)
+	at java.base/sun.nio.ch.NioSocketImpl$1.read(NioSocketImpl.java:808)
+	at java.base/java.net.Socket$SocketInputStream.read(Socket.java:966)
+	at java.base/sun.security.ssl.SSLSocketInputRecord.read(SSLSocketInputRecord.java:484)
+	at java.base/sun.security.ssl.SSLSocketInputRecord.readHeader(SSLSocketInputRecord.java:478)
+	at java.base/sun.security.ssl.SSLSocketInputRecord.bytesInCompletePacket(SSLSocketInputRecord.java:70)
+	at java.base/sun.security.ssl.SSLSocketImpl.readApplicationRecord(SSLSocketImpl.java:1465)
+	at java.base/sun.security.ssl.SSLSocketImpl$AppInputStream.read(SSLSocketImpl.java:1069)
+	at java.base/sun.nio.cs.StreamDecoder.readBytes(StreamDecoder.java:270)
+	at java.base/sun.nio.cs.StreamDecoder.implRead(StreamDecoder.java:313)
+	at java.base/sun.nio.cs.StreamDecoder.read(StreamDecoder.java:188)
+	at java.base/java.io.InputStreamReader.read(InputStreamReader.java:177)
+	at java.base/java.io.BufferedReader.fill(BufferedReader.java:162)
+	at java.base/java.io.BufferedReader.readLine(BufferedReader.java:329)
+	at java.base/java.io.BufferedReader.readLine(BufferedReader.java:396)
+	at jimenezfranciscoProyectoFinal.Servidor.opciones(Servidor.java:392)
+	at jimenezfranciscoProyectoFinal.Servidor.access$3(Servidor.java:386)
+	at jimenezfranciscoProyectoFinal.Servidor$Client.run(Servidor.java:153)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+
+mar 08, 2024 7:35:32 P. M. jimenezfranciscoProyectoFinal.Servidor opciones
+DETALLADO: El servidor recibe el comando
+mar 08, 2024 7:35:32 P. M. jimenezfranciscoProyectoFinal.Servidor sendFicheroMovimientos
+INFORMACIÓN: Se creó correctamente el fichero de movimientos para la cuenta con ID: 1
+mar 08, 2024 7:35:32 P. M. jimenezfranciscoProyectoFinal.Servidor$Client run
+GRAVE: Error en la ejecución del cliente
+java.net.SocketException: Connection reset
+	at java.base/sun.nio.ch.NioSocketImpl.implRead(NioSocketImpl.java:328)
+	at java.base/sun.nio.ch.NioSocketImpl.read(NioSocketImpl.java:355)
+	at java.base/sun.nio.ch.NioSocketImpl$1.read(NioSocketImpl.java:808)
+	at java.base/java.net.Socket$SocketInputStream.read(Socket.java:966)
+	at java.base/sun.security.ssl.SSLSocketInputRecord.read(SSLSocketInputRecord.java:484)
+	at java.base/sun.security.ssl.SSLSocketInputRecord.readHeader(SSLSocketInputRecord.java:478)
+	at java.base/sun.security.ssl.SSLSocketInputRecord.bytesInCompletePacket(SSLSocketInputRecord.java:70)
+	at java.base/sun.security.ssl.SSLSocketImpl.readApplicationRecord(SSLSocketImpl.java:1465)
+	at java.base/sun.security.ssl.SSLSocketImpl$AppInputStream.read(SSLSocketImpl.java:1069)
+	at java.base/sun.nio.cs.StreamDecoder.readBytes(StreamDecoder.java:270)
+	at java.base/sun.nio.cs.StreamDecoder.implRead(StreamDecoder.java:313)
+	at java.base/sun.nio.cs.StreamDecoder.read(StreamDecoder.java:188)
+	at java.base/java.io.InputStreamReader.read(InputStreamReader.java:177)
+	at java.base/java.io.BufferedReader.fill(BufferedReader.java:162)
+	at java.base/java.io.BufferedReader.readLine(BufferedReader.java:329)
+	at java.base/java.io.BufferedReader.readLine(BufferedReader.java:396)
+	at jimenezfranciscoProyectoFinal.Servidor.opciones(Servidor.java:392)
+	at jimenezfranciscoProyectoFinal.Servidor.access$3(Servidor.java:386)
+	at jimenezfranciscoProyectoFinal.Servidor$Client.run(Servidor.java:153)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+
+mar 08, 2024 7:37:36 P. M. jimenezfranciscoProyectoFinal.Servidor opciones
+DETALLADO: El servidor recibe el comando
+mar 08, 2024 7:37:36 P. M. jimenezfranciscoProyectoFinal.Servidor sendFicheroMovimientos
+INFORMACIÓN: Se creó correctamente el fichero de movimientos para la cuenta con ID: 1
+mar 08, 2024 7:37:36 P. M. jimenezfranciscoProyectoFinal.Servidor$Client run
+GRAVE: Error en la ejecución del cliente
+java.net.SocketException: Connection reset
+	at java.base/sun.nio.ch.NioSocketImpl.implRead(NioSocketImpl.java:328)
+	at java.base/sun.nio.ch.NioSocketImpl.read(NioSocketImpl.java:355)
+	at java.base/sun.nio.ch.NioSocketImpl$1.read(NioSocketImpl.java:808)
+	at java.base/java.net.Socket$SocketInputStream.read(Socket.java:966)
+	at java.base/sun.security.ssl.SSLSocketInputRecord.read(SSLSocketInputRecord.java:484)
+	at java.base/sun.security.ssl.SSLSocketInputRecord.readHeader(SSLSocketInputRecord.java:478)
+	at java.base/sun.security.ssl.SSLSocketInputRecord.bytesInCompletePacket(SSLSocketInputRecord.java:70)
+	at java.base/sun.security.ssl.SSLSocketImpl.readApplicationRecord(SSLSocketImpl.java:1465)
+	at java.base/sun.security.ssl.SSLSocketImpl$AppInputStream.read(SSLSocketImpl.java:1069)
+	at java.base/sun.nio.cs.StreamDecoder.readBytes(StreamDecoder.java:270)
+	at java.base/sun.nio.cs.StreamDecoder.implRead(StreamDecoder.java:313)
+	at java.base/sun.nio.cs.StreamDecoder.read(StreamDecoder.java:188)
+	at java.base/java.io.InputStreamReader.read(InputStreamReader.java:177)
+	at java.base/java.io.BufferedReader.fill(BufferedReader.java:162)
+	at java.base/java.io.BufferedReader.readLine(BufferedReader.java:329)
+	at java.base/java.io.BufferedReader.readLine(BufferedReader.java:396)
+	at jimenezfranciscoProyectoFinal.Servidor.opciones(Servidor.java:392)
+	at jimenezfranciscoProyectoFinal.Servidor.access$3(Servidor.java:386)
+	at jimenezfranciscoProyectoFinal.Servidor$Client.run(Servidor.java:153)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+
+mar 08, 2024 7:38:59 P. M. jimenezfranciscoProyectoFinal.Servidor opciones
+DETALLADO: El servidor recibe el comando
+mar 08, 2024 7:38:59 P. M. jimenezfranciscoProyectoFinal.Servidor sendFicheroMovimientos
+INFORMACIÓN: Se creó correctamente el fichero de movimientos para la cuenta con ID: 1
+mar 08, 2024 7:38:59 P. M. jimenezfranciscoProyectoFinal.Servidor$Client run
+GRAVE: Error en la ejecución del cliente
+java.net.SocketException: Connection reset
+	at java.base/sun.nio.ch.NioSocketImpl.implRead(NioSocketImpl.java:328)
+	at java.base/sun.nio.ch.NioSocketImpl.read(NioSocketImpl.java:355)
+	at java.base/sun.nio.ch.NioSocketImpl$1.read(NioSocketImpl.java:808)
+	at java.base/java.net.Socket$SocketInputStream.read(Socket.java:966)
+	at java.base/sun.security.ssl.SSLSocketInputRecord.read(SSLSocketInputRecord.java:484)
+	at java.base/sun.security.ssl.SSLSocketInputRecord.readHeader(SSLSocketInputRecord.java:478)
+	at java.base/sun.security.ssl.SSLSocketInputRecord.bytesInCompletePacket(SSLSocketInputRecord.java:70)
+	at java.base/sun.security.ssl.SSLSocketImpl.readApplicationRecord(SSLSocketImpl.java:1465)
+	at java.base/sun.security.ssl.SSLSocketImpl$AppInputStream.read(SSLSocketImpl.java:1069)
+	at java.base/sun.nio.cs.StreamDecoder.readBytes(StreamDecoder.java:270)
+	at java.base/sun.nio.cs.StreamDecoder.implRead(StreamDecoder.java:313)
+	at java.base/sun.nio.cs.StreamDecoder.read(StreamDecoder.java:188)
+	at java.base/java.io.InputStreamReader.read(InputStreamReader.java:177)
+	at java.base/java.io.BufferedReader.fill(BufferedReader.java:162)
+	at java.base/java.io.BufferedReader.readLine(BufferedReader.java:329)
+	at java.base/java.io.BufferedReader.readLine(BufferedReader.java:396)
+	at jimenezfranciscoProyectoFinal.Servidor.opciones(Servidor.java:392)
+	at jimenezfranciscoProyectoFinal.Servidor.access$3(Servidor.java:386)
+	at jimenezfranciscoProyectoFinal.Servidor$Client.run(Servidor.java:153)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+
+mar 08, 2024 7:52:27 P. M. jimenezfranciscoProyectoFinal.Servidor main
+DETALLADO: El servidor esperando
+mar 08, 2024 7:52:39 P. M. jimenezfranciscoProyectoFinal.Servidor opciones
+DETALLADO: El servidor recibe el comando
+mar 08, 2024 7:52:39 P. M. jimenezfranciscoProyectoFinal.Servidor sendFicheroMovimientos
+INFORMACIÓN: Se creó correctamente el fichero de movimientos para la cuenta con ID: 1
+mar 08, 2024 7:52:52 P. M. jimenezfranciscoProyectoFinal.Servidor$Client run
+GRAVE: Error en la ejecución del cliente
+java.net.SocketException: Connection reset
+	at java.base/sun.nio.ch.NioSocketImpl.implRead(NioSocketImpl.java:328)
+	at java.base/sun.nio.ch.NioSocketImpl.read(NioSocketImpl.java:355)
+	at java.base/sun.nio.ch.NioSocketImpl$1.read(NioSocketImpl.java:808)
+	at java.base/java.net.Socket$SocketInputStream.read(Socket.java:966)
+	at java.base/sun.security.ssl.SSLSocketInputRecord.read(SSLSocketInputRecord.java:484)
+	at java.base/sun.security.ssl.SSLSocketInputRecord.readHeader(SSLSocketInputRecord.java:478)
+	at java.base/sun.security.ssl.SSLSocketInputRecord.bytesInCompletePacket(SSLSocketInputRecord.java:70)
+	at java.base/sun.security.ssl.SSLSocketImpl.readApplicationRecord(SSLSocketImpl.java:1465)
+	at java.base/sun.security.ssl.SSLSocketImpl$AppInputStream.read(SSLSocketImpl.java:1069)
+	at java.base/sun.nio.cs.StreamDecoder.readBytes(StreamDecoder.java:270)
+	at java.base/sun.nio.cs.StreamDecoder.implRead(StreamDecoder.java:313)
+	at java.base/sun.nio.cs.StreamDecoder.read(StreamDecoder.java:188)
+	at java.base/java.io.InputStreamReader.read(InputStreamReader.java:177)
+	at java.base/java.io.BufferedReader.fill(BufferedReader.java:162)
+	at java.base/java.io.BufferedReader.readLine(BufferedReader.java:329)
+	at java.base/java.io.BufferedReader.readLine(BufferedReader.java:396)
+	at jimenezfranciscoProyectoFinal.Servidor.opciones(Servidor.java:392)
+	at jimenezfranciscoProyectoFinal.Servidor.access$3(Servidor.java:386)
+	at jimenezfranciscoProyectoFinal.Servidor$Client.run(Servidor.java:153)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+
+mar 08, 2024 7:52:59 P. M. jimenezfranciscoProyectoFinal.Servidor opciones
+DETALLADO: El servidor recibe el comando
+mar 08, 2024 7:52:59 P. M. jimenezfranciscoProyectoFinal.Servidor sendFicheroMovimientos
+INFORMACIÓN: Se creó correctamente el fichero de movimientos para la cuenta con ID: 1
+mar 08, 2024 7:53:12 P. M. jimenezfranciscoProyectoFinal.Servidor opciones
+DETALLADO: El servidor recibe el comando
+mar 08, 2024 7:54:17 P. M. jimenezfranciscoProyectoFinal.Servidor main
+DETALLADO: El servidor esperando
+mar 08, 2024 7:54:30 P. M. jimenezfranciscoProyectoFinal.Servidor opciones
+DETALLADO: El servidor recibe el comando
+mar 08, 2024 7:54:30 P. M. jimenezfranciscoProyectoFinal.Servidor sendFicheroMovimientos
+INFORMACIÓN: Se creó correctamente el fichero de movimientos para la cuenta con ID: 1
+mar 08, 2024 7:55:38 P. M. jimenezfranciscoProyectoFinal.Servidor main
+DETALLADO: El servidor esperando
+mar 08, 2024 7:55:53 P. M. jimenezfranciscoProyectoFinal.Servidor opciones
+DETALLADO: El servidor recibe el comando
+mar 08, 2024 7:55:53 P. M. jimenezfranciscoProyectoFinal.Servidor sendFicheroMovimientos
+INFORMACIÓN: Se creó correctamente el fichero de movimientos para la cuenta con ID: 1
+mar 08, 2024 7:56:14 P. M. jimenezfranciscoProyectoFinal.Servidor opciones
+DETALLADO: El servidor recibe el comando
+mar 08, 2024 7:56:15 P. M. jimenezfranciscoProyectoFinal.Servidor sendFicheroMovimientos
+INFORMACIÓN: Se creó correctamente el fichero de movimientos para la cuenta con ID: 2
+mar 08, 2024 7:56:36 P. M. jimenezfranciscoProyectoFinal.Servidor$Client run
+GRAVE: Error en la ejecución del cliente
+java.net.SocketException: Connection reset
+	at java.base/sun.nio.ch.NioSocketImpl.implRead(NioSocketImpl.java:328)
+	at java.base/sun.nio.ch.NioSocketImpl.read(NioSocketImpl.java:355)
+	at java.base/sun.nio.ch.NioSocketImpl$1.read(NioSocketImpl.java:808)
+	at java.base/java.net.Socket$SocketInputStream.read(Socket.java:966)
+	at java.base/sun.security.ssl.SSLSocketInputRecord.read(SSLSocketInputRecord.java:484)
+	at java.base/sun.security.ssl.SSLSocketInputRecord.readHeader(SSLSocketInputRecord.java:478)
+	at java.base/sun.security.ssl.SSLSocketInputRecord.bytesInCompletePacket(SSLSocketInputRecord.java:70)
+	at java.base/sun.security.ssl.SSLSocketImpl.readApplicationRecord(SSLSocketImpl.java:1465)
+	at java.base/sun.security.ssl.SSLSocketImpl$AppInputStream.read(SSLSocketImpl.java:1069)
+	at java.base/sun.nio.cs.StreamDecoder.readBytes(StreamDecoder.java:270)
+	at java.base/sun.nio.cs.StreamDecoder.implRead(StreamDecoder.java:313)
+	at java.base/sun.nio.cs.StreamDecoder.read(StreamDecoder.java:188)
+	at java.base/java.io.InputStreamReader.read(InputStreamReader.java:177)
+	at java.base/java.io.BufferedReader.fill(BufferedReader.java:162)
+	at java.base/java.io.BufferedReader.readLine(BufferedReader.java:329)
+	at java.base/java.io.BufferedReader.readLine(BufferedReader.java:396)
+	at jimenezfranciscoProyectoFinal.Servidor.opciones(Servidor.java:396)
+	at jimenezfranciscoProyectoFinal.Servidor.access$3(Servidor.java:390)
+	at jimenezfranciscoProyectoFinal.Servidor$Client.run(Servidor.java:153)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+
+mar 08, 2024 7:56:49 P. M. jimenezfranciscoProyectoFinal.Servidor opciones
+DETALLADO: El servidor recibe el comando
+mar 08, 2024 7:56:58 P. M. jimenezfranciscoProyectoFinal.Servidor opciones
+DETALLADO: El servidor recibe el comando
+mar 08, 2024 7:56:58 P. M. jimenezfranciscoProyectoFinal.Servidor ingresarDinero
+INFORMACIÓN: Se ingresó correctamente el dinero en la cuenta con ID: 2
+mar 08, 2024 7:57:00 P. M. jimenezfranciscoProyectoFinal.Servidor opciones
+DETALLADO: El servidor recibe el comando
+mar 08, 2024 7:57:08 P. M. jimenezfranciscoProyectoFinal.Servidor opciones
+DETALLADO: El servidor recibe el comando
+mar 08, 2024 7:57:08 P. M. jimenezfranciscoProyectoFinal.Servidor ingresarDinero
+INFORMACIÓN: Se ingresó correctamente el dinero en la cuenta con ID: 2
+mar 08, 2024 7:57:11 P. M. jimenezfranciscoProyectoFinal.Servidor opciones
+DETALLADO: El servidor recibe el comando
+mar 08, 2024 7:57:13 P. M. jimenezfranciscoProyectoFinal.Servidor opciones
+DETALLADO: El servidor recibe el comando
+mar 08, 2024 7:57:19 P. M. jimenezfranciscoProyectoFinal.Servidor opciones
+DETALLADO: El servidor recibe el comando
+mar 08, 2024 7:57:19 P. M. jimenezfranciscoProyectoFinal.Servidor sendFicheroMovimientos
+INFORMACIÓN: Se creó correctamente el fichero de movimientos para la cuenta con ID: 2
+mar 08, 2024 7:57:47 P. M. jimenezfranciscoProyectoFinal.Servidor main
+DETALLADO: El servidor esperando
+mar 08, 2024 7:57:53 P. M. jimenezfranciscoProyectoFinal.Servidor main
+DETALLADO: El servidor esperando
+mar 08, 2024 7:58:05 P. M. jimenezfranciscoProyectoFinal.Servidor opciones
+DETALLADO: El servidor recibe el comando
+mar 08, 2024 7:58:15 P. M. jimenezfranciscoProyectoFinal.Servidor sendFicheroMovimientos
+INFORMACIÓN: Se creó correctamente el fichero de movimientos para la cuenta con ID: 2
+mar 08, 2024 7:59:00 P. M. jimenezfranciscoProyectoFinal.Servidor main
+DETALLADO: El servidor esperando
+mar 08, 2024 7:59:03 P. M. jimenezfranciscoProyectoFinal.Servidor main
+DETALLADO: El servidor esperando
+mar 08, 2024 7:59:15 P. M. jimenezfranciscoProyectoFinal.Servidor opciones
+DETALLADO: El servidor recibe el comando
+mar 08, 2024 7:59:15 P. M. jimenezfranciscoProyectoFinal.Servidor sendFicheroMovimientos
+INFORMACIÓN: Se creó correctamente el fichero de movimientos para la cuenta con ID: 2
+mar 08, 2024 8:00:39 P. M. jimenezfranciscoProyectoFinal.Servidor main
+DETALLADO: El servidor esperando
+mar 08, 2024 8:00:51 P. M. jimenezfranciscoProyectoFinal.Servidor opciones
+DETALLADO: El servidor recibe el comando
+mar 08, 2024 8:00:58 P. M. jimenezfranciscoProyectoFinal.Servidor sendFicheroMovimientos
+INFORMACIÓN: Se creó correctamente el fichero de movimientos para la cuenta con ID: 2
+mar 08, 2024 8:01:51 P. M. jimenezfranciscoProyectoFinal.Servidor main
+DETALLADO: El servidor esperando
+mar 08, 2024 8:02:00 P. M. jimenezfranciscoProyectoFinal.Servidor opciones
+DETALLADO: El servidor recibe el comando
+mar 08, 2024 8:02:00 P. M. jimenezfranciscoProyectoFinal.Servidor sendFicheroMovimientos
+INFORMACIÓN: Se creó correctamente el fichero de movimientos para la cuenta con ID: 1
+mar 08, 2024 8:02:43 P. M. jimenezfranciscoProyectoFinal.Servidor main
+DETALLADO: El servidor esperando
+mar 08, 2024 8:02:55 P. M. jimenezfranciscoProyectoFinal.Servidor opciones
+DETALLADO: El servidor recibe el comando
+mar 08, 2024 8:02:55 P. M. jimenezfranciscoProyectoFinal.Servidor sendFicheroMovimientos
+INFORMACIÓN: Se creó correctamente el fichero de movimientos para la cuenta con ID: 2
+mar 08, 2024 8:03:35 P. M. jimenezfranciscoProyectoFinal.Servidor$Client run
+GRAVE: Error en la ejecución del cliente
+java.net.SocketException: Connection reset
+	at java.base/sun.nio.ch.NioSocketImpl.implRead(NioSocketImpl.java:328)
+	at java.base/sun.nio.ch.NioSocketImpl.read(NioSocketImpl.java:355)
+	at java.base/sun.nio.ch.NioSocketImpl$1.read(NioSocketImpl.java:808)
+	at java.base/java.net.Socket$SocketInputStream.read(Socket.java:966)
+	at java.base/sun.security.ssl.SSLSocketInputRecord.read(SSLSocketInputRecord.java:484)
+	at java.base/sun.security.ssl.SSLSocketInputRecord.readHeader(SSLSocketInputRecord.java:478)
+	at java.base/sun.security.ssl.SSLSocketInputRecord.bytesInCompletePacket(SSLSocketInputRecord.java:70)
+	at java.base/sun.security.ssl.SSLSocketImpl.readApplicationRecord(SSLSocketImpl.java:1465)
+	at java.base/sun.security.ssl.SSLSocketImpl$AppInputStream.read(SSLSocketImpl.java:1069)
+	at java.base/sun.nio.cs.StreamDecoder.readBytes(StreamDecoder.java:270)
+	at java.base/sun.nio.cs.StreamDecoder.implRead(StreamDecoder.java:313)
+	at java.base/sun.nio.cs.StreamDecoder.read(StreamDecoder.java:188)
+	at java.base/java.io.InputStreamReader.read(InputStreamReader.java:177)
+	at java.base/java.io.BufferedReader.fill(BufferedReader.java:162)
+	at java.base/java.io.BufferedReader.readLine(BufferedReader.java:329)
+	at java.base/java.io.BufferedReader.readLine(BufferedReader.java:396)
+	at jimenezfranciscoProyectoFinal.Servidor.opciones(Servidor.java:396)
+	at jimenezfranciscoProyectoFinal.Servidor.access$3(Servidor.java:390)
+	at jimenezfranciscoProyectoFinal.Servidor$Client.run(Servidor.java:153)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+
+mar 08, 2024 8:03:45 P. M. jimenezfranciscoProyectoFinal.Servidor opciones
+DETALLADO: El servidor recibe el comando
+mar 08, 2024 8:03:45 P. M. jimenezfranciscoProyectoFinal.Servidor sendFicheroMovimientos
+INFORMACIÓN: Se creó correctamente el fichero de movimientos para la cuenta con ID: 2
+mar 08, 2024 8:04:27 P. M. jimenezfranciscoProyectoFinal.Servidor main
+DETALLADO: El servidor esperando
+mar 08, 2024 8:04:35 P. M. jimenezfranciscoProyectoFinal.Servidor opciones
+DETALLADO: El servidor recibe el comando
+mar 08, 2024 8:04:35 P. M. jimenezfranciscoProyectoFinal.Servidor sendFicheroMovimientos
+INFORMACIÓN: Se creó correctamente el fichero de movimientos para la cuenta con ID: 2
+mar 08, 2024 8:08:17 P. M. jimenezfranciscoProyectoFinal.Servidor opciones
+DETALLADO: El servidor recibe el comando
+mar 08, 2024 8:08:18 P. M. jimenezfranciscoProyectoFinal.Servidor sendFicheroMovimientos
+INFORMACIÓN: Se creó correctamente el fichero de movimientos para la cuenta con ID: 2
+mar 08, 2024 8:11:36 P. M. jimenezfranciscoProyectoFinal.Servidor opciones
+DETALLADO: El servidor recibe el comando
+mar 08, 2024 8:11:36 P. M. jimenezfranciscoProyectoFinal.Servidor sendFicheroMovimientos
+INFORMACIÓN: Se creó correctamente el fichero de movimientos para la cuenta con ID: 1
+mar 08, 2024 8:12:09 P. M. jimenezfranciscoProyectoFinal.Servidor opciones
+DETALLADO: El servidor recibe el comando
+mar 08, 2024 8:13:13 P. M. jimenezfranciscoProyectoFinal.Servidor$Client run
+GRAVE: Error en la ejecución del cliente
+java.net.SocketException: Connection reset
+	at java.base/sun.nio.ch.NioSocketImpl.implRead(NioSocketImpl.java:328)
+	at java.base/sun.nio.ch.NioSocketImpl.read(NioSocketImpl.java:355)
+	at java.base/sun.nio.ch.NioSocketImpl$1.read(NioSocketImpl.java:808)
+	at java.base/java.net.Socket$SocketInputStream.read(Socket.java:966)
+	at java.base/sun.security.ssl.SSLSocketInputRecord.read(SSLSocketInputRecord.java:484)
+	at java.base/sun.security.ssl.SSLSocketInputRecord.readHeader(SSLSocketInputRecord.java:478)
+	at java.base/sun.security.ssl.SSLSocketInputRecord.bytesInCompletePacket(SSLSocketInputRecord.java:70)
+	at java.base/sun.security.ssl.SSLSocketImpl.readApplicationRecord(SSLSocketImpl.java:1465)
+	at java.base/sun.security.ssl.SSLSocketImpl$AppInputStream.read(SSLSocketImpl.java:1069)
+	at java.base/sun.nio.cs.StreamDecoder.readBytes(StreamDecoder.java:270)
+	at java.base/sun.nio.cs.StreamDecoder.implRead(StreamDecoder.java:313)
+	at java.base/sun.nio.cs.StreamDecoder.read(StreamDecoder.java:188)
+	at java.base/java.io.InputStreamReader.read(InputStreamReader.java:177)
+	at java.base/java.io.BufferedReader.fill(BufferedReader.java:162)
+	at java.base/java.io.BufferedReader.readLine(BufferedReader.java:329)
+	at java.base/java.io.BufferedReader.readLine(BufferedReader.java:396)
+	at jimenezfranciscoProyectoFinal.Servidor.opciones(Servidor.java:396)
+	at jimenezfranciscoProyectoFinal.Servidor.access$3(Servidor.java:390)
+	at jimenezfranciscoProyectoFinal.Servidor$Client.run(Servidor.java:153)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+
+mar 08, 2024 8:13:24 P. M. jimenezfranciscoProyectoFinal.Servidor opciones
+DETALLADO: El servidor recibe el comando
+mar 08, 2024 8:13:24 P. M. jimenezfranciscoProyectoFinal.Servidor sendFicheroMovimientos
+INFORMACIÓN: Se creó correctamente el fichero de movimientos para la cuenta con ID: 2
+mar 08, 2024 8:14:06 P. M. jimenezfranciscoProyectoFinal.Servidor checkAuthetication
+GRAVE: Error de entrada/salida al autenticar el usuario
+java.net.SocketException: Connection reset
+	at java.base/sun.nio.ch.NioSocketImpl.implRead(NioSocketImpl.java:328)
+	at java.base/sun.nio.ch.NioSocketImpl.read(NioSocketImpl.java:355)
+	at java.base/sun.nio.ch.NioSocketImpl$1.read(NioSocketImpl.java:808)
+	at java.base/java.net.Socket$SocketInputStream.read(Socket.java:966)
+	at java.base/sun.security.ssl.SSLSocketInputRecord.read(SSLSocketInputRecord.java:484)
+	at java.base/sun.security.ssl.SSLSocketInputRecord.readHeader(SSLSocketInputRecord.java:478)
+	at java.base/sun.security.ssl.SSLSocketInputRecord.bytesInCompletePacket(SSLSocketInputRecord.java:70)
+	at java.base/sun.security.ssl.SSLSocketImpl.readApplicationRecord(SSLSocketImpl.java:1465)
+	at java.base/sun.security.ssl.SSLSocketImpl$AppInputStream.read(SSLSocketImpl.java:1069)
+	at java.base/sun.nio.cs.StreamDecoder.readBytes(StreamDecoder.java:270)
+	at java.base/sun.nio.cs.StreamDecoder.implRead(StreamDecoder.java:313)
+	at java.base/sun.nio.cs.StreamDecoder.read(StreamDecoder.java:188)
+	at java.base/java.io.InputStreamReader.read(InputStreamReader.java:177)
+	at java.base/java.io.BufferedReader.fill(BufferedReader.java:162)
+	at java.base/java.io.BufferedReader.readLine(BufferedReader.java:329)
+	at java.base/java.io.BufferedReader.readLine(BufferedReader.java:396)
+	at jimenezfranciscoProyectoFinal.Servidor.checkAuthetication(Servidor.java:356)
+	at jimenezfranciscoProyectoFinal.Servidor.access$2(Servidor.java:350)
+	at jimenezfranciscoProyectoFinal.Servidor$Client.run(Servidor.java:152)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+
+mar 08, 2024 8:14:06 P. M. jimenezfranciscoProyectoFinal.Servidor$Client run
+GRAVE: Error en la ejecución del cliente
+java.net.SocketException: Socket is closed
+	at java.base/sun.security.ssl.SSLSocketImpl.getInputStream(SSLSocketImpl.java:893)
+	at jimenezfranciscoProyectoFinal.Servidor.opciones(Servidor.java:391)
+	at jimenezfranciscoProyectoFinal.Servidor.access$3(Servidor.java:390)
+	at jimenezfranciscoProyectoFinal.Servidor$Client.run(Servidor.java:153)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+
+mar 08, 2024 8:14:37 P. M. jimenezfranciscoProyectoFinal.Servidor opciones
+DETALLADO: El servidor recibe el comando
+mar 08, 2024 8:14:54 P. M. jimenezfranciscoProyectoFinal.Servidor opciones
+DETALLADO: El servidor recibe el comando
+mar 08, 2024 8:15:15 P. M. jimenezfranciscoProyectoFinal.Servidor opciones
+DETALLADO: El servidor recibe el comando
+mar 08, 2024 8:15:20 P. M. jimenezfranciscoProyectoFinal.Servidor$Client run
+GRAVE: Error en la ejecución del cliente
+java.net.SocketException: Connection reset
+	at java.base/sun.nio.ch.NioSocketImpl.implRead(NioSocketImpl.java:328)
+	at java.base/sun.nio.ch.NioSocketImpl.read(NioSocketImpl.java:355)
+	at java.base/sun.nio.ch.NioSocketImpl$1.read(NioSocketImpl.java:808)
+	at java.base/java.net.Socket$SocketInputStream.read(Socket.java:966)
+	at java.base/sun.security.ssl.SSLSocketInputRecord.read(SSLSocketInputRecord.java:484)
+	at java.base/sun.security.ssl.SSLSocketInputRecord.readHeader(SSLSocketInputRecord.java:478)
+	at java.base/sun.security.ssl.SSLSocketInputRecord.bytesInCompletePacket(SSLSocketInputRecord.java:70)
+	at java.base/sun.security.ssl.SSLSocketImpl.readApplicationRecord(SSLSocketImpl.java:1465)
+	at java.base/sun.security.ssl.SSLSocketImpl$AppInputStream.read(SSLSocketImpl.java:1069)
+	at java.base/sun.nio.cs.StreamDecoder.readBytes(StreamDecoder.java:270)
+	at java.base/sun.nio.cs.StreamDecoder.implRead(StreamDecoder.java:313)
+	at java.base/sun.nio.cs.StreamDecoder.read(StreamDecoder.java:188)
+	at java.base/java.io.InputStreamReader.read(InputStreamReader.java:177)
+	at java.base/java.io.BufferedReader.fill(BufferedReader.java:162)
+	at java.base/java.io.BufferedReader.readLine(BufferedReader.java:329)
+	at java.base/java.io.BufferedReader.readLine(BufferedReader.java:396)
+	at jimenezfranciscoProyectoFinal.Servidor.opciones(Servidor.java:396)
+	at jimenezfranciscoProyectoFinal.Servidor.access$3(Servidor.java:390)
+	at jimenezfranciscoProyectoFinal.Servidor$Client.run(Servidor.java:153)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+
+mar 08, 2024 8:15:31 P. M. jimenezfranciscoProyectoFinal.Servidor opciones
+DETALLADO: El servidor recibe el comando
+mar 08, 2024 8:15:32 P. M. jimenezfranciscoProyectoFinal.Servidor opciones
+DETALLADO: El servidor recibe el comando
+mar 08, 2024 8:15:34 P. M. jimenezfranciscoProyectoFinal.Servidor opciones
+DETALLADO: El servidor recibe el comando
+mar 08, 2024 8:15:36 P. M. jimenezfranciscoProyectoFinal.Servidor opciones
+DETALLADO: El servidor recibe el comando
+mar 08, 2024 8:15:41 P. M. jimenezfranciscoProyectoFinal.Servidor opciones
+DETALLADO: El servidor recibe el comando
+mar 08, 2024 8:15:41 P. M. jimenezfranciscoProyectoFinal.Servidor sendFicheroMovimientos
+INFORMACIÓN: Se creó correctamente el fichero de movimientos para la cuenta con ID: 1
+mar 08, 2024 8:16:14 P. M. jimenezfranciscoProyectoFinal.Servidor opciones
+DETALLADO: El servidor recibe el comando
+mar 08, 2024 8:16:14 P. M. jimenezfranciscoProyectoFinal.Servidor sendFicheroMovimientos
+INFORMACIÓN: Se creó correctamente el fichero de movimientos para la cuenta con ID: 1
+mar 08, 2024 8:17:19 P. M. jimenezfranciscoProyectoFinal.Servidor main
+DETALLADO: El servidor esperando
+mar 08, 2024 8:17:47 P. M. jimenezfranciscoProyectoFinal.Servidor opciones
+DETALLADO: El servidor recibe el comando
+mar 08, 2024 8:17:52 P. M. jimenezfranciscoProyectoFinal.Servidor sendFicheroMovimientos
+INFORMACIÓN: Se creó correctamente el fichero de movimientos para la cuenta con ID: 1
+mar 08, 2024 8:18:52 P. M. jimenezfranciscoProyectoFinal.Servidor main
+DETALLADO: El servidor esperando
+mar 08, 2024 8:19:17 P. M. jimenezfranciscoProyectoFinal.Servidor opciones
+DETALLADO: El servidor recibe el comando
+mar 08, 2024 8:19:17 P. M. jimenezfranciscoProyectoFinal.Servidor sendFicheroMovimientos
+INFORMACIÓN: Se creó correctamente el fichero de movimientos para la cuenta con ID: 1
+mar 08, 2024 8:20:18 P. M. jimenezfranciscoProyectoFinal.Servidor main
+DETALLADO: El servidor esperando
+mar 08, 2024 8:20:40 P. M. jimenezfranciscoProyectoFinal.Servidor opciones
+DETALLADO: El servidor recibe el comando
+mar 08, 2024 8:20:40 P. M. jimenezfranciscoProyectoFinal.Servidor sendFicheroMovimientos
+INFORMACIÓN: Se creó correctamente el fichero de movimientos para la cuenta con ID: 1
+mar 08, 2024 8:20:55 P. M. jimenezfranciscoProyectoFinal.Servidor$Client run
+GRAVE: Error en la ejecución del cliente
+java.net.SocketException: Connection reset
+	at java.base/sun.nio.ch.NioSocketImpl.implRead(NioSocketImpl.java:328)
+	at java.base/sun.nio.ch.NioSocketImpl.read(NioSocketImpl.java:355)
+	at java.base/sun.nio.ch.NioSocketImpl$1.read(NioSocketImpl.java:808)
+	at java.base/java.net.Socket$SocketInputStream.read(Socket.java:966)
+	at java.base/sun.security.ssl.SSLSocketInputRecord.read(SSLSocketInputRecord.java:484)
+	at java.base/sun.security.ssl.SSLSocketInputRecord.readHeader(SSLSocketInputRecord.java:478)
+	at java.base/sun.security.ssl.SSLSocketInputRecord.bytesInCompletePacket(SSLSocketInputRecord.java:70)
+	at java.base/sun.security.ssl.SSLSocketImpl.readApplicationRecord(SSLSocketImpl.java:1465)
+	at java.base/sun.security.ssl.SSLSocketImpl$AppInputStream.read(SSLSocketImpl.java:1069)
+	at java.base/sun.nio.cs.StreamDecoder.readBytes(StreamDecoder.java:270)
+	at java.base/sun.nio.cs.StreamDecoder.implRead(StreamDecoder.java:313)
+	at java.base/sun.nio.cs.StreamDecoder.read(StreamDecoder.java:188)
+	at java.base/java.io.InputStreamReader.read(InputStreamReader.java:177)
+	at java.base/java.io.BufferedReader.fill(BufferedReader.java:162)
+	at java.base/java.io.BufferedReader.readLine(BufferedReader.java:329)
+	at java.base/java.io.BufferedReader.readLine(BufferedReader.java:396)
+	at jimenezfranciscoProyectoFinal.Servidor.opciones(Servidor.java:396)
+	at jimenezfranciscoProyectoFinal.Servidor.access$3(Servidor.java:390)
+	at jimenezfranciscoProyectoFinal.Servidor$Client.run(Servidor.java:153)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+
+mar 08, 2024 8:21:03 P. M. jimenezfranciscoProyectoFinal.Servidor main
+DETALLADO: El servidor esperando
+mar 08, 2024 8:21:11 P. M. jimenezfranciscoProyectoFinal.Servidor opciones
+DETALLADO: El servidor recibe el comando
+mar 08, 2024 8:21:11 P. M. jimenezfranciscoProyectoFinal.Servidor sendFicheroMovimientos
+INFORMACIÓN: Se creó correctamente el fichero de movimientos para la cuenta con ID: 1
+mar 08, 2024 8:21:22 P. M. jimenezfranciscoProyectoFinal.Servidor main
+DETALLADO: El servidor esperando
+mar 08, 2024 8:21:48 P. M. jimenezfranciscoProyectoFinal.Servidor opciones
+DETALLADO: El servidor recibe el comando
+mar 08, 2024 8:21:48 P. M. jimenezfranciscoProyectoFinal.Servidor sendFicheroMovimientos
+INFORMACIÓN: Se creó correctamente el fichero de movimientos para la cuenta con ID: 1
+mar 08, 2024 8:22:53 P. M. jimenezfranciscoProyectoFinal.Servidor opciones
+DETALLADO: El servidor recibe el comando
+mar 08, 2024 8:22:53 P. M. jimenezfranciscoProyectoFinal.Servidor sendFicheroMovimientos
+INFORMACIÓN: Se creó correctamente el fichero de movimientos para la cuenta con ID: 1
+mar 08, 2024 8:23:48 P. M. jimenezfranciscoProyectoFinal.Servidor opciones
+DETALLADO: El servidor recibe el comando
+mar 08, 2024 8:23:48 P. M. jimenezfranciscoProyectoFinal.Servidor sendFicheroMovimientos
+INFORMACIÓN: Se creó correctamente el fichero de movimientos para la cuenta con ID: 1
+mar 08, 2024 8:24:51 P. M. jimenezfranciscoProyectoFinal.Servidor main
+DETALLADO: El servidor esperando
+mar 08, 2024 8:25:11 P. M. jimenezfranciscoProyectoFinal.Servidor main
+DETALLADO: El servidor esperando
+mar 08, 2024 8:25:26 P. M. jimenezfranciscoProyectoFinal.Servidor opciones
+DETALLADO: El servidor recibe el comando
+mar 08, 2024 8:25:26 P. M. jimenezfranciscoProyectoFinal.Servidor sendFicheroMovimientos
+INFORMACIÓN: Se creó correctamente el fichero de movimientos para la cuenta con ID: 1
+mar 08, 2024 8:25:56 P. M. jimenezfranciscoProyectoFinal.Servidor main
+DETALLADO: El servidor esperando
+mar 08, 2024 8:26:17 P. M. jimenezfranciscoProyectoFinal.Servidor opciones
+DETALLADO: El servidor recibe el comando
+mar 08, 2024 8:26:52 P. M. jimenezfranciscoProyectoFinal.Servidor sendFicheroMovimientos
+INFORMACIÓN: Se creó correctamente el fichero de movimientos para la cuenta con ID: 1
+mar 08, 2024 8:38:57 P. M. jimenezfranciscoProyectoFinal.Servidor main
+DETALLADO: El servidor esperando
+mar 08, 2024 8:39:08 P. M. jimenezfranciscoProyectoFinal.Servidor opciones
+DETALLADO: El servidor recibe el comando
+mar 08, 2024 8:39:08 P. M. jimenezfranciscoProyectoFinal.Servidor sendFicheroMovimientos
+INFORMACIÓN: Se creó correctamente el fichero de movimientos para la cuenta con ID: 1
+mar 08, 2024 8:39:45 P. M. jimenezfranciscoProyectoFinal.Servidor main
+DETALLADO: El servidor esperando
+mar 08, 2024 8:40:07 P. M. jimenezfranciscoProyectoFinal.Servidor opciones
+DETALLADO: El servidor recibe el comando
+mar 08, 2024 8:40:13 P. M. jimenezfranciscoProyectoFinal.Servidor sendFicheroMovimientos
+INFORMACIÓN: Se creó correctamente el fichero de movimientos para la cuenta con ID: 1
+mar 08, 2024 8:42:15 P. M. jimenezfranciscoProyectoFinal.Servidor main
+DETALLADO: El servidor esperando
+mar 08, 2024 8:42:47 P. M. jimenezfranciscoProyectoFinal.Servidor opciones
+DETALLADO: El servidor recibe el comando
+mar 08, 2024 8:42:53 P. M. jimenezfranciscoProyectoFinal.Servidor sendFicheroMovimientos
+INFORMACIÓN: Se creó correctamente el fichero de movimientos para la cuenta con ID: 1
+mar 08, 2024 8:50:13 P. M. jimenezfranciscoProyectoFinal.Servidor main
+DETALLADO: El servidor esperando
+mar 08, 2024 8:50:31 P. M. jimenezfranciscoProyectoFinal.Servidor opciones
+DETALLADO: El servidor recibe el comando
+mar 08, 2024 8:50:32 P. M. jimenezfranciscoProyectoFinal.Servidor sendFicheroMovimientos
+INFORMACIÓN: Se creó correctamente el fichero de movimientos para la cuenta con ID: 1
+mar 08, 2024 8:52:49 P. M. jimenezfranciscoProyectoFinal.Servidor main
+DETALLADO: El servidor esperando
+mar 08, 2024 8:53:05 P. M. jimenezfranciscoProyectoFinal.Servidor opciones
+DETALLADO: El servidor recibe el comando
+mar 08, 2024 8:53:05 P. M. jimenezfranciscoProyectoFinal.Servidor ingresarDinero
+INFORMACIÓN: Se ingresó correctamente el dinero en la cuenta con ID: 1
+mar 08, 2024 8:53:09 P. M. jimenezfranciscoProyectoFinal.Servidor opciones
+DETALLADO: El servidor recibe el comando
+mar 08, 2024 8:53:09 P. M. jimenezfranciscoProyectoFinal.Servidor ingresarDinero
+INFORMACIÓN: Se ingresó correctamente el dinero en la cuenta con ID: 2
+mar 08, 2024 8:53:14 P. M. jimenezfranciscoProyectoFinal.Servidor opciones
+DETALLADO: El servidor recibe el comando
+mar 08, 2024 8:53:57 P. M. jimenezfranciscoProyectoFinal.Servidor opciones
+DETALLADO: El servidor recibe el comando
+mar 08, 2024 8:54:30 P. M. jimenezfranciscoProyectoFinal.Servidor opciones
+DETALLADO: El servidor recibe el comando
+mar 08, 2024 8:54:37 P. M. jimenezfranciscoProyectoFinal.Servidor opciones
+DETALLADO: El servidor recibe el comando
+mar 08, 2024 8:58:01 P. M. jimenezfranciscoProyectoFinal.Servidor main
+DETALLADO: El servidor esperando
+mar 08, 2024 8:58:23 P. M. jimenezfranciscoProyectoFinal.Servidor opciones
+DETALLADO: El servidor recibe el comando
+mar 08, 2024 8:58:29 P. M. jimenezfranciscoProyectoFinal.Servidor sendFicheroMovimientos
+INFORMACIÓN: Se creó correctamente el fichero de movimientos para la cuenta con ID: 1
+mar 08, 2024 9:09:54 P. M. jimenezfranciscoProyectoFinal.Servidor main
+DETALLADO: El servidor esperando
+mar 08, 2024 9:10:08 P. M. jimenezfranciscoProyectoFinal.Servidor opciones
+DETALLADO: El servidor recibe el comando
+mar 08, 2024 9:10:08 P. M. jimenezfranciscoProyectoFinal.Servidor sendFicheroMovimientos
+INFORMACIÓN: Se creó correctamente el fichero de movimientos para la cuenta con ID: 1
+mar 08, 2024 9:10:40 P. M. jimenezfranciscoProyectoFinal.Servidor main
+DETALLADO: El servidor esperando
+mar 08, 2024 9:10:50 P. M. jimenezfranciscoProyectoFinal.Servidor opciones
+DETALLADO: El servidor recibe el comando
+mar 08, 2024 9:10:50 P. M. jimenezfranciscoProyectoFinal.Servidor sendFicheroMovimientos
+INFORMACIÓN: Se creó correctamente el fichero de movimientos para la cuenta con ID: 1
+mar 08, 2024 9:11:13 P. M. jimenezfranciscoProyectoFinal.Servidor main
+DETALLADO: El servidor esperando
+mar 08, 2024 9:11:28 P. M. jimenezfranciscoProyectoFinal.Servidor opciones
+DETALLADO: El servidor recibe el comando
+mar 08, 2024 9:11:28 P. M. jimenezfranciscoProyectoFinal.Servidor sendFicheroMovimientos
+INFORMACIÓN: Se creó correctamente el fichero de movimientos para la cuenta con ID: 2
+mar 08, 2024 9:14:26 P. M. jimenezfranciscoProyectoFinal.Servidor main
+DETALLADO: El servidor esperando
+mar 08, 2024 9:14:39 P. M. jimenezfranciscoProyectoFinal.Servidor opciones
+DETALLADO: El servidor recibe el comando
+mar 08, 2024 9:14:40 P. M. jimenezfranciscoProyectoFinal.Servidor sendFicheroMovimientos
+INFORMACIÓN: Se creó correctamente el fichero de movimientos para la cuenta con ID: 1
+mar 08, 2024 9:21:40 P. M. jimenezfranciscoProyectoFinal.Servidor main
+DETALLADO: El servidor esperando
+mar 08, 2024 9:21:52 P. M. jimenezfranciscoProyectoFinal.Servidor opciones
+DETALLADO: El servidor recibe el comando
+mar 08, 2024 9:21:52 P. M. jimenezfranciscoProyectoFinal.Servidor sendFicheroMovimientos
+INFORMACIÓN: Se creó correctamente el fichero de movimientos para la cuenta con ID: 1
