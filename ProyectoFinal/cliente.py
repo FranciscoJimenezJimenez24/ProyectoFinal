@@ -65,16 +65,14 @@ def control(socket_cliente):
         socket_cliente.send(f"{comando}\r\n".encode())
         if comando.startswith("sendmov"):
             encrypted_data = socket_cliente.recv(1024)
-            if encrypted_data != b'Esa cuenta no existe\r\n' and encrypted_data != b"Ese comando es incorrecto\r\n":
+            if encrypted_data != b'Esa cuenta no existe\n' and encrypted_data != b'No tiene acceso a esa cuenta\n' and encrypted_data != b"Ese comando es incorrecto\n":
                 with open('movimientos.txt', 'wb') as f:
                     while True:
                         data = socket_cliente.recv(1024)            
-                        if not data:
+                        if data == b"FIN_MOVIMIENTOS\n":
                             break
                         f.write(data)
                 print("File received successfully.")
-                mensaje_servidor = socket_cliente.recv(1024).decode()
-                print(mensaje_servidor)
             else:
                 # Se recibió un mensaje de error
                 mensaje = encrypted_data.decode()
@@ -82,6 +80,20 @@ def control(socket_cliente):
         else:
             mensaje_servidor = socket_cliente.recv(1024).decode()
             print(mensaje_servidor)
+
+def recibir_movimientos(socket_cliente):
+    lista_movimientos = []
+    while True:
+        movimiento = socket_cliente.recv(1024).decode()
+        if movimiento.strip() == "FIN_MOVIMIENTOS":
+            break
+        lista_movimientos.append(movimiento)
+    return lista_movimientos
+
+def crear_archivo_movimientos(lista_movimientos):
+    with open("movimientos.txt", "w") as file:
+        for movimiento in lista_movimientos:
+            file.write(movimiento + "\n")
 
 try:
     context = ssl.create_default_context()

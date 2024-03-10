@@ -1,6 +1,5 @@
 package jimenezfranciscoProyectoFinal;
 
-import java.io.BufferedInputStream;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileInputStream;
@@ -11,6 +10,7 @@ import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.io.InputStream;
 import java.io.PrintWriter;
+
 import java.net.Socket;
 import java.security.InvalidKeyException;
 import java.security.KeyManagementException;
@@ -36,11 +36,7 @@ import java.util.logging.SimpleFormatter;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import javax.crypto.BadPaddingException;
-import javax.crypto.Cipher;
-import javax.crypto.IllegalBlockSizeException;
 import javax.crypto.NoSuchPaddingException;
-import javax.crypto.spec.SecretKeySpec;
 import javax.net.ssl.KeyManagerFactory;
 import javax.net.ssl.SSLContext;
 import javax.net.ssl.SSLServerSocketFactory;
@@ -76,43 +72,22 @@ public class Servidor {
 			LOGGER.log(Level.SEVERE, "Error al establecer la conexión con la base de datos", e);
 		}
 	}
-
-    public void main() throws InvalidKeyException, NoSuchAlgorithmException, NoSuchPaddingException {
-        LOGGER.setLevel(Level.ALL);
-
-        try {
-            FileHandler fileHandler = new FileHandler("logger.log", true);
-            fileHandler.setFormatter(new SimpleFormatter());
-            LOGGER.addHandler(fileHandler);
+	
+	private void logger() {
+	 	try {
+	        FileHandler fileHandler = new FileHandler("logger.log", true);
+	        fileHandler.setFormatter(new SimpleFormatter());
+	        LOGGER.addHandler(fileHandler);
         } catch (IOException e) {
         	LOGGER.log(Level.SEVERE, "Error al configurar el manejador de archivos del logger", e);
         }
-        SSLContext sslContext;
-        try {
-            sslContext = SSLContext.getInstance("TLS");
-            KeyManagerFactory keyManagerFactory = KeyManagerFactory.getInstance(KeyManagerFactory.getDefaultAlgorithm());
-            TrustManagerFactory trustManagerFactory = TrustManagerFactory.getInstance(TrustManagerFactory.getDefaultAlgorithm());
-
-            // Cargar el almacén de claves y el almacén de confianza (truststore) con tus certificados
-            char[] keystorePassword = "llaves".toCharArray();
-            char[] truststorePassword = "confio".toCharArray();
-            KeyStore keyStore = KeyStore.getInstance("JKS");
-            KeyStore trustStore = KeyStore.getInstance("JKS");
-
-            try (InputStream keyStoreStream = new FileInputStream("llaves.jks");
-                 InputStream trustStoreStream = new FileInputStream("confio.jks")) {
-                keyStore.load(keyStoreStream, keystorePassword);
-                trustStore.load(trustStoreStream, truststorePassword);
-            }
-
-            keyManagerFactory.init(keyStore, keystorePassword);
-            trustManagerFactory.init(trustStore);
-
-            sslContext.init(keyManagerFactory.getKeyManagers(), trustManagerFactory.getTrustManagers(), null);
-        } catch (NoSuchAlgorithmException | KeyStoreException | CertificateException | IOException | UnrecoverableKeyException | KeyManagementException e) {
-        	LOGGER.log(Level.SEVERE, "Error al configurar el contexto SSL", e);
-            return;
-        }
+	}
+	
+    public void main() throws InvalidKeyException, NoSuchAlgorithmException, NoSuchPaddingException {
+        LOGGER.setLevel(Level.ALL);
+        logger();
+       
+        SSLContext sslContext = getSSLContext();
 
         SSLServerSocketFactory sslServerSocketFactory = sslContext.getServerSocketFactory();
         SSLServerSocket serverSocket = null; // Declarar fuera del bloque try
@@ -139,6 +114,36 @@ public class Servidor {
             }
         }
     }
+
+	private SSLContext getSSLContext() {
+		SSLContext sslContext;
+        try {
+            sslContext = SSLContext.getInstance("TLS");
+            KeyManagerFactory keyManagerFactory = KeyManagerFactory.getInstance(KeyManagerFactory.getDefaultAlgorithm());
+            TrustManagerFactory trustManagerFactory = TrustManagerFactory.getInstance(TrustManagerFactory.getDefaultAlgorithm());
+
+            // Cargar el almacén de claves y el almacén de confianza (truststore) con tus certificados
+            char[] keystorePassword = "llaves".toCharArray();
+            char[] truststorePassword = "confio".toCharArray();
+            KeyStore keyStore = KeyStore.getInstance("JKS");
+            KeyStore trustStore = KeyStore.getInstance("JKS");
+
+            try (InputStream keyStoreStream = new FileInputStream("llaves.jks");
+                 InputStream trustStoreStream = new FileInputStream("confio.jks")) {
+                keyStore.load(keyStoreStream, keystorePassword);
+                trustStore.load(trustStoreStream, truststorePassword);
+            }
+
+            keyManagerFactory.init(keyStore, keystorePassword);
+            trustManagerFactory.init(trustStore);
+
+            sslContext.init(keyManagerFactory.getKeyManagers(), trustManagerFactory.getTrustManagers(), null);
+        } catch (NoSuchAlgorithmException | KeyStoreException | CertificateException | IOException | UnrecoverableKeyException | KeyManagementException e) {
+        	LOGGER.log(Level.SEVERE, "Error al configurar el contexto SSL", e);
+            return null;
+        }
+		return sslContext;
+	}
     
     private class Client implements Runnable {
         private Socket socket;
@@ -152,8 +157,10 @@ public class Servidor {
             try {
                 checkAuthetication(socket);
                 opciones(socket);
-            } catch (IOException | NoSuchAlgorithmException | NoSuchPaddingException | InvalidKeyException e) {
+            } catch (IOException | NoSuchAlgorithmException | NoSuchPaddingException | InvalidKeyException  e ) {
             	LOGGER.log(Level.SEVERE, "Error en la ejecución del cliente", e);
+            } catch (Exception ex) {
+            	ex.printStackTrace();
             } finally {
             	SEMAFORO.release();
                 try {
@@ -300,7 +307,7 @@ public class Servidor {
         return listaMovimientos;
     }
     
-    private boolean sendFicheroMovimientos(int id_cuenta) {
+    private boolean sendMovimientos(int id_cuenta) {
     	cuenta=countExist(id_cuenta);
         yourCount=isYourCount(id_cuenta);
         if (yourCount) {
@@ -322,9 +329,6 @@ public class Servidor {
         		}else {
         			return false;
         		}
-    			
-        		
-        		
         	} catch (SQLException e) {
     			// TODO Auto-generated catch block
         		LOGGER.log(Level.SEVERE, "Error al intentar obtener los movimientos para enviar el fichero de la cuenta con ID: " + id_cuenta, e);
@@ -387,6 +391,126 @@ public class Servidor {
 		}
         id_usuario=getIdUsuario(usuario,socket);
     }
+    
+    private void options(Socket socket,String opcion,PrintWriter writer) {
+    	if (opcion.startsWith("ing")) {
+    		ing(socket,opcion,writer);
+    	}else if (opcion.startsWith("ret")) {
+    		ret(socket,opcion,writer);
+    	}else if (opcion.startsWith("mov")) {
+    		mov(opcion,writer);
+    	}else if (opcion.startsWith("sendmov")) {
+    		sendmov(socket,opcion,writer);
+    	}else if (opcion.equalsIgnoreCase("seecounts") && user && password) {
+    		writer.println(mostrarDineroActual());
+    	}else if (opcion.equalsIgnoreCase("quit")) {
+        	writer.println("Hasta luego"); 
+        }else {
+        	writer.println("Ese comando es incorrecto"); 
+        }
+    }
+    
+    private void sendmov(Socket socket,String opcion,PrintWriter writer) {
+    	String numeroStr = opcion.substring(8).trim();
+    	int id_cuenta = Integer.parseInt(numeroStr);
+    	if (sendMovimientos(id_cuenta)) {
+    		try {
+    		    OutputStream outputStream = socket.getOutputStream();
+    		    String nombreArchivo = "fichero.txt";
+    		    File archivo = new File(nombreArchivo);
+    		    BufferedReader br = new BufferedReader(new FileReader(archivo));
+    		    String linea;
+    		    while ((linea = br.readLine()) != null) {
+    		        outputStream.write(linea.getBytes());
+    		        outputStream.write("\n".getBytes());
+    		    }
+    		    writer.println("FIN_MOVIMIENTOS");
+    		    br.close();
+    		    outputStream.flush();
+    		} catch (Exception e) {
+    		    LOGGER.log(Level.SEVERE, "Error al leer el fichero de movimientos", e);
+    		    e.printStackTrace();
+    		}
+    		
+    	}else {
+    		if (!yourCount && cuenta) {
+        		writer.println("No tiene acceso a esa cuenta");
+        	}else if (!cuenta){
+        		writer.println("Esa cuenta no existe");
+        	}
+    	}
+    }
+    	
+    
+    private void mov(String opcion,PrintWriter writer) {
+    	String numeroStr = opcion.substring(4).trim();  // Obtener la subcadena a partir del segundo carácter
+        int id_cuenta = Integer.parseInt(numeroStr);
+        ArrayList<String> listaMovimientos=showMovimientos(id_cuenta);
+        String movimientos="";
+        if (listaMovimientos.size()>0) {
+        	for (String movimiento : listaMovimientos) {
+				movimientos+=movimiento+"\n";
+			}
+        	writer.println(movimientos);
+        }else {
+        	if (!yourCount && cuenta) {
+        		writer.println("No tiene acceso a esa cuenta");
+        	}else if (!cuenta){
+        		writer.println("Esa cuenta no existe");
+        	}else {
+        		writer.println("No hay ningún movimiento en esta cuenta");
+        	}
+        	
+        }
+    }
+    
+    private void ret(Socket socket,String opcion,PrintWriter writer) {
+    	Pattern pattern = Pattern.compile("<(\\d+)>\\s+(\\d+)");
+        Matcher matcher = pattern.matcher(opcion);
+        if (matcher.find()) {
+            String valor1 = matcher.group(1);
+            String valor2 = matcher.group(2);
+
+            int dinero = Integer.parseInt(valor1);
+            int id_cuenta = Integer.parseInt(valor2);
+
+            if (retirarDinero(dinero, id_cuenta)) {
+            	writer.println("+OK Retirada dinero");
+            }else {
+            	if (!yourCount && cuenta) {
+            		writer.println("No tiene acceso a esa cuenta");
+            	}else if (!cuenta){
+            		writer.println("Esa cuenta no existe");
+            	}
+            }
+        }else {
+        	writer.println("Comando incorrecto");
+        }
+    }
+    
+    private void ing(Socket socket,String opcion, PrintWriter writer) {
+    	Pattern pattern = Pattern.compile("<(\\d+)>\\s+(\\d+)");
+        Matcher matcher = pattern.matcher(opcion);
+        if (matcher.find()) {
+            String valor1 = matcher.group(1);
+            String valor2 = matcher.group(2);
+
+            int dinero = Integer.parseInt(valor1);
+            int id_cuenta = Integer.parseInt(valor2);
+
+            if (ingresarDinero(dinero, id_cuenta)) {
+            	writer.println("+OK Ingreso dinero");
+            }else {
+            	if (!yourCount && cuenta) {
+            		writer.println("No tiene acceso a esa cuenta");
+            	}else if (!cuenta){
+            		writer.println("Esa cuenta no existe");
+            	}
+            }
+        }else {
+        	writer.println("Comando incorrecto");
+        }
+    }
  
     private void opciones(Socket socket) throws IOException, NoSuchAlgorithmException, NoSuchPaddingException, InvalidKeyException {
     	BufferedReader reader = new BufferedReader(new InputStreamReader(socket.getInputStream()));
@@ -396,112 +520,9 @@ public class Servidor {
         while (!opcion.equalsIgnoreCase("quit")) {
         	opcion = reader.readLine().trim();
         	try {
-
     		    LOGGER.log(Level.FINE, "El servidor recibe el comando");
     		    opcion = opcion.toLowerCase();
-            
-            	if (opcion.startsWith("ing")) {
-            		Pattern pattern = Pattern.compile("<(\\d+)>\\s+(\\d+)");
-                    Matcher matcher = pattern.matcher(opcion);
-                    if (matcher.find()) {
-                        String valor1 = matcher.group(1);
-                        String valor2 = matcher.group(2);
-
-                        int dinero = Integer.parseInt(valor1);
-                        int id_cuenta = Integer.parseInt(valor2);
-
-                        if (ingresarDinero(dinero, id_cuenta)) {
-                        	writer.println("+OK Ingreso dinero");
-                        }else {
-                        	if (!yourCount && cuenta) {
-                        		writer.println("No tiene acceso a esa cuenta");
-                        	}else if (!cuenta){
-                        		writer.println("Esa cuenta no existe");
-                        	}
-                        }
-                    }else {
-                    	writer.println("Comando incorrecto");
-                    }
-                    mostrarDineroActual();
-                }else if (opcion.startsWith("ret")) {
-                	Pattern pattern = Pattern.compile("<(\\d+)>\\s+(\\d+)");
-                    Matcher matcher = pattern.matcher(opcion);
-                    if (matcher.find()) {
-                        String valor1 = matcher.group(1);
-                        String valor2 = matcher.group(2);
-
-                        int dinero = Integer.parseInt(valor1);
-                        int id_cuenta = Integer.parseInt(valor2);
-
-                        if (retirarDinero(dinero, id_cuenta)) {
-                        	writer.println("+OK Retirada dinero");
-                        }else {
-                        	if (!yourCount && cuenta) {
-                        		writer.println("No tiene acceso a esa cuenta");
-                        	}else if (!cuenta){
-                        		writer.println("Esa cuenta no existe");
-                        	}
-                        }
-                    }else {
-                    	writer.println("Comando incorrecto");
-                    }
-                    mostrarDineroActual();
-                }else if (opcion.startsWith("mov")) {
-                	String numeroStr = opcion.substring(4).trim();  // Obtener la subcadena a partir del segundo carácter
-                    int id_cuenta = Integer.parseInt(numeroStr);
-                    ArrayList<String> listaMovimientos=showMovimientos(id_cuenta);
-                    String movimientos="";
-                    if (listaMovimientos.size()>0) {
-                    	for (String movimiento : listaMovimientos) {
-            				movimientos+=movimiento+"\n";
-            			}
-                    	writer.println(movimientos);
-                    }else {
-                    	if (!yourCount && cuenta) {
-                    		writer.println("No tiene acceso a esa cuenta");
-                    	}else if (!cuenta){
-                    		writer.println("Esa cuenta no existe");
-                    	}else {
-                    		writer.println("No hay ningún movimiento en esta cuenta");
-                    	}
-                    	
-                    }
-                }else if (opcion.startsWith("sendmov")) {
-                	String numeroStr = opcion.substring(8).trim();
-                	int id_cuenta = Integer.parseInt(numeroStr);
-                	if (sendFicheroMovimientos(id_cuenta)) {
-                		try {
-                		    OutputStream outputStream = socket.getOutputStream();
-                		    String nombreArchivo = "fichero.txt";
-                		    File archivo = new File(nombreArchivo);
-                		    BufferedReader br = new BufferedReader(new FileReader(archivo));
-                		    String linea;
-                		    while ((linea = br.readLine()) != null) {
-                		        outputStream.write(linea.getBytes());
-                		        outputStream.write("\n".getBytes());
-                		        System.out.println("mensaje");// Agregar un salto de línea al final de cada línea si es necesario
-                		    }
-                		    br.close();
-                		    outputStream.close();
-                		} catch (Exception e) {
-                		    LOGGER.log(Level.SEVERE, "Error al leer el fichero de movimientos", e);
-                		    e.printStackTrace();
-                		}
-                		
-                	}else {
-                		if (!yourCount && cuenta) {
-                    		writer.println("No tiene acceso a esa cuenta");
-                    	}else if (!cuenta){
-                    		writer.println("Esa cuenta no existe");
-                    	}
-                	}
-                }else if (opcion.equalsIgnoreCase("seecounts") && user && password) {
-            		writer.println(mostrarDineroActual());
-            	}else if (opcion.equalsIgnoreCase("quit")) {
-                	writer.println("Hasta luego"); 
-                }else {
-                	writer.println("Ese comando es incorrecto"); 
-                }
+    		    options(socket,opcion,writer);
         	} catch (IllegalArgumentException e) {
         		writer.println("Ese comando es incorrecto"); 
         	}
